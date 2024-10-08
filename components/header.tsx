@@ -30,8 +30,8 @@ export default function Header() {
   const links: Link[] = [
     { href: "/about", text: "ABOUT" },
     { href: "/news", text: "NEWS" },
-    { href: "/member", text: "MEMBER" },
     { href: "/blog", text: "BLOG" },
+    { href: "/member", text: "MEMBER" },
     { href: "/works", text: "WORKS" },
     { href: "/contact", text: "CONTACT" },
   ];

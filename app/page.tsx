@@ -13,7 +13,7 @@ export default function Home() {
   const { toggleColorMode } = useColorMode();
   const formBackground = useColorModeValue("gray.100", "gray.700");
   return (
-    <Flex height="100vh" alignItems="center" justifyContent="center">
+    <Flex height="400vh" alignItems="center" justifyContent="center">
       <Flex
         direction="column"
         background={formBackground}

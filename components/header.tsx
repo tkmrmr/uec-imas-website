@@ -20,9 +20,14 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
+type Link = {
+  href: string;
+  text: string;
+};
+
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const links = [
+  const links: Link[] = [
     { href: "/about", text: "ABOUT" },
     { href: "/news", text: "NEWS" },
     { href: "/member", text: "MEMBER" },

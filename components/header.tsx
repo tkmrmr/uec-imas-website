@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <Box
       as="header"
-      bg="blackAlpha.50"
+      bg="whiteAlpha.50"
       h="100px"
       w="100%"
       position="fixed"

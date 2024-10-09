@@ -9,9 +9,6 @@ import {
   useColorMode,
   useColorModeValue,
   Text,
-  Container,
-  Center,
-  Stack,
 } from "@chakra-ui/react";
 
 export default function Home() {
@@ -40,7 +37,7 @@ export default function Home() {
           left: 0,
           width: "100%",
           height: "100%",
-          bg: "rgba(0, 0, 0, 0.3)" /* 半透明の黒をオーバーレイ */,
+          bg: "rgba(0, 0, 0, 0.4)" /* 半透明の黒をオーバーレイ */,
           zIndex: 1,
         }}
         filter="brightness(90%)"
@@ -49,7 +46,7 @@ export default function Home() {
           <Text fontSize="8xl" fontWeight="bold" color="white">
             D@NPEN
           </Text>
-          <Text fontSize="2xl" fontWeight="bold" color="white">
+          <Text fontSize="2xl" color="white">
             電気通信大学アイドルマスター研究会
           </Text>
         </Box>

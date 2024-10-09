@@ -1,3 +1,5 @@
+"use client";
+
 // app/layout.tsx
 import { Providers } from "./providers";
 import { Noto_Sans_JP } from "next/font/google";

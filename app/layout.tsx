@@ -3,9 +3,7 @@
 import { Providers } from "./providers";
 import { Noto_Sans_JP } from "next/font/google";
 import { usePathname } from "next/navigation";
-
 import Header from "../components/header";
-import HeaderTop from "../components/header-top";
 import Footer from "../components/footer";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], weight: ["400"] });
@@ -15,13 +13,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const isTop = usePathname() === "/";
+  const pathname = usePathname();
 
   return (
     <html lang="ja">
       <body className={notoSansJP.className}>
         <Providers>
-          {isTop ? <HeaderTop /> : <Header />}
+          <Header pathname={pathname} />
           {children}
           <Footer />
         </Providers>

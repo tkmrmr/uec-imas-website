@@ -111,6 +111,13 @@ export default function Header() {
                     fontWeight="600"
                     fontSize="17px"
                     lineHeight="100px"
+                    textDecoration="none"
+                    bgImage="linear-gradient(90deg, teal.400, teal.400)"
+                    bgRepeat="no-repeat"
+                    bgPosition="left bottom"
+                    bgSize="0 2px"
+                    transition="background-size 0.6s"
+                    _hover={{ color: "teal.400", bgSize: "100% 2px" }}
                   >
                     {link.text}
                   </Link>

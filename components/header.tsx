@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+// import { motion } from "framer-motion";
+import HeaderWrapper from "./header-wrapper";
 import Logo from "./logo";
 import Menu from "./menu";
 
 export default function Header({ pathname }: { pathname: string }) {
   const [color, setColor] = useState("white");
+  const [bgColor, setBgColor] = useState("whiteAlpha.50");
   const [scrollY, setScrollY] = useState(0);
 
   const handleScroll = () => {
@@ -14,10 +16,12 @@ export default function Header({ pathname }: { pathname: string }) {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    if (scrollY > 740) {
+    if (scrollY > 0) {
       setColor("black");
+      setBgColor("white");
     } else {
       setColor("white");
+      setBgColor("whiteAlpha.50");
     }
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -25,27 +29,18 @@ export default function Header({ pathname }: { pathname: string }) {
   }, [scrollY]);
 
   return (
-    <Box
-      as="header"
-      bg="whiteAlpha.50"
-      h="100px"
-      w="100%"
-      position="fixed"
-      top={0}
-      zIndex="docked"
-      p="0 100px"
-    >
-      <nav>
-        <Flex
-          justify="space-between"
-          alignItems="center"
-          maxWidth="1920px"
-          margin="0 auto"
-        >
+    <>
+      {pathname === "/" ? (
+        <HeaderWrapper bgColor={bgColor}>
           <Logo />
-          {pathname === "/" ? <Menu color={color} /> : <Menu />}
-        </Flex>
-      </nav>
-    </Box>
+          <Menu color={color} />
+        </HeaderWrapper>
+      ) : (
+        <HeaderWrapper bgColor="white">
+          <Logo />
+          <Menu />
+        </HeaderWrapper>
+      )}
+    </>
   );
 }

@@ -11,7 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-export default function Home() {
+export default function About() {
   const { toggleColorMode } = useColorMode();
   const formBackground = useColorModeValue("gray.100", "gray.700");
 
@@ -24,7 +24,7 @@ export default function Home() {
         bgPosition="center 0px"
         bgRepeat="no-repeat"
         color="black"
-        height="700px"
+        height="800px"
         width="100%"
         position="relative"
         display="flex"
@@ -43,15 +43,8 @@ export default function Home() {
         filter="brightness(90%)"
       >
         <Box position="relative" zIndex={2} textAlign={"center"}>
-          <Text
-            fontSize={{ base: "4xl", md: "8xl" }}
-            fontWeight="bold"
-            color="white"
-          >
-            D@NPEN
-          </Text>
-          <Text fontSize={{ base: "1xl", md: "2xl" }} color="white">
-            電気通信大学アイドルマスター研究会
+          <Text fontSize="8xl" fontWeight="bold" color="white">
+            About
           </Text>
         </Box>
       </Box>

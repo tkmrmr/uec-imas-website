@@ -17,38 +17,6 @@ export default function About() {
 
   return (
     <Box>
-      {/* トップ */}
-      <Box
-        bgImage="/top.png"
-        bgSize="cover"
-        bgPosition="center 0px"
-        bgRepeat="no-repeat"
-        color="black"
-        height="800px"
-        width="100%"
-        position="relative"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        _before={{
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          bg: "rgba(0, 0, 0, 0.4)" /* 半透明の黒をオーバーレイ */,
-          zIndex: 1,
-        }}
-        filter="brightness(90%)"
-      >
-        <Box position="relative" zIndex={2} textAlign={"center"}>
-          <Text fontSize="8xl" fontWeight="bold" color="white">
-            About
-          </Text>
-        </Box>
-      </Box>
-
       <Flex height="100vh" alignItems="center" justifyContent="center">
         <Flex
           direction="column"

@@ -16,6 +16,7 @@ import {
   Heading,
   Text,
   Button,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { CalendarIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import useNote from "../../lib/use-note";
@@ -47,7 +48,8 @@ export default function Blog() {
   return (
     <Box>
       {/* 記事表示部分 */}
-      <Flex wrap="wrap" p="30px 0">
+      {/* <Flex wrap="wrap" p="30px 0" justify="center"> */}
+      <SimpleGrid columns={[null, 1, 2]} p="30px 0">
         {CurrentPosts?.map((post, index) => (
           <Card
             as="a"
@@ -55,7 +57,6 @@ export default function Blog() {
             overflow="hidden"
             variant="outline"
             key={index}
-            w={{ base: "100%", md: "45%" }}
             m="15px"
             role="group"
             _hover={{ boxShadow: "lg" }}
@@ -63,8 +64,8 @@ export default function Blog() {
             <Box p="10px">
               <CardHeader>
                 <Flex justify="space-between">
-                  <Image src="/note_logo.png" alt="" w="15%" />
-                  <Flex alignItems="center" color="gray.500">
+                  <Image src="/note_logo.png" alt="" maxW="70px" />
+                  <Flex color="gray.500">
                     <Icon as={CalendarIcon} m="4px" />
                     {post.date}
                   </Flex>
@@ -87,7 +88,7 @@ export default function Blog() {
             </CardFooter>
           </Card>
         ))}
-      </Flex>
+      </SimpleGrid>
 
       {/* ページネーション */}
       <Flex justify="center">

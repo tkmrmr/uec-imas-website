@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // import { motion } from "framer-motion";
 import HeaderWrapper from "./header-wrapper";
 import Logo from "./logo";
-import Menu from "./menu";
+import Navi from "./navi";
 
 export default function Header({ pathname }: { pathname: string }) {
   const [color, setColor] = useState("white");
@@ -33,12 +33,12 @@ export default function Header({ pathname }: { pathname: string }) {
       {pathname === "/" ? (
         <HeaderWrapper bgColor={bgColor}>
           <Logo />
-          <Menu color={color} />
+          <Navi color={color} />
         </HeaderWrapper>
       ) : (
         <HeaderWrapper bgColor="white">
           <Logo />
-          <Menu />
+          <Navi />
         </HeaderWrapper>
       )}
     </>

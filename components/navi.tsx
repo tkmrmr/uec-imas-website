@@ -21,7 +21,7 @@ type Link = {
   text: string;
 };
 
-export default function Menu({ color = "black" }: { color?: string }) {
+export default function Navi({ color = "black" }: { color?: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const links: Link[] = [
     { href: "/", text: "TOP" },

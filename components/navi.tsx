@@ -64,10 +64,6 @@ export default function Navi({ color = "black" }: { color?: string }) {
                 </Box>
               ))}
             </DrawerBody>
-            <DrawerFooter>
-              &copy; 電気通信大学
-              <br /> &nbsp;&nbsp;&nbsp; アイドルマスター研究会
-            </DrawerFooter>
           </DrawerContent>
         </Drawer>
       </Box>

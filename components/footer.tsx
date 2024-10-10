@@ -10,7 +10,7 @@ export default function Footer() {
     >
       <Center>
         <Text lineHeight={{ base: "70px", md: "100px" }}>
-          &copy; 電気通信大学アイドルマスター研究会
+          &copy; 2024 D@NPEN
         </Text>
       </Center>
     </Box>

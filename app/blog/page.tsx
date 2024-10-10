@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Box,
   Flex,
@@ -14,12 +15,16 @@ import {
   Divider,
   Heading,
   Text,
+  Button,
 } from "@chakra-ui/react";
 import { CalendarIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import useNote from "../../lib/use-note";
 
 export default function Blog() {
   const { noteData, isLoading } = useNote();
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 10;
+
   if (isLoading) {
     return (
       <Box>
@@ -29,10 +34,21 @@ export default function Blog() {
       </Box>
     );
   }
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const CurrentPosts = noteData?.pageEmbedLinks?.slice(
+    indexOfFirstPost,
+    indexOfLastPost
+  );
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
     <Box>
+      {/* 記事表示部分 */}
       <Flex wrap="wrap" p="30px 0">
-        {noteData?.pageEmbedLinks?.map((post, index) => (
+        {CurrentPosts?.map((post, index) => (
           <Card
             as="a"
             href={post.link}
@@ -71,6 +87,25 @@ export default function Blog() {
             </CardFooter>
           </Card>
         ))}
+      </Flex>
+
+      {/* ページネーション */}
+      <Flex justify="center">
+        {[...Array(Math.ceil((noteData?.totalCount || 0) / postsPerPage))].map(
+          (_, num) => (
+            <Button
+              key={num}
+              m="5px"
+              p="5px 10px"
+              bg={currentPage === num + 1 ? "teal.400" : "gray.300"}
+              color="white"
+              borderRadius="full"
+              onClick={() => paginate(num + 1)}
+            >
+              {num + 1}
+            </Button>
+          )
+        )}
       </Flex>
     </Box>
   );

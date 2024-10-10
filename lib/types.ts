@@ -6,5 +6,5 @@ type Post = {
 
 export type NoteData = {
   pageEmbedLinks?: Post[];
-  totalCount?: number;
+  totalCount: number;
 };

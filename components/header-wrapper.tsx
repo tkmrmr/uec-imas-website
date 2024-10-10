@@ -19,16 +19,14 @@ export default function HeaderWrapper({
       p={{ base: "0 10px", md: "0 40px" }}
       transition="background-color 0.3s ease"
     >
-      <nav>
-        <Flex
-          justify="space-between"
-          alignItems="center"
-          maxWidth="1536px"
-          margin="0 auto"
-        >
-          {children}
-        </Flex>
-      </nav>
+      <Flex
+        justify="space-between"
+        alignItems="center"
+        maxWidth="1536px"
+        margin="0 auto"
+      >
+        {children}
+      </Flex>
     </Box>
   );
 }

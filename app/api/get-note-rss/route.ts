@@ -8,7 +8,7 @@ const getNoteEmbedLink = async (): Promise<NoteData> => {
   return {
     pageEmbedLinks: rssFeed.items.map((item) => ({
       title: item.title ?? "",
-      date: item.pubDate ? dayjs(item.pubDate).format("YYYY-MM-DD") : "",
+      date: item.pubDate ? dayjs(item.pubDate).format("YYYY/MM/DD") : "",
       link: item.link ?? "https://note.com/amatkmr",
     })),
     totalCount: rssFeed.items.length ?? 0,

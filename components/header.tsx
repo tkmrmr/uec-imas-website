@@ -6,7 +6,7 @@ import Navi from "./navi";
 
 export default function Header({ pathname }: { pathname: string }) {
   const [color, setColor] = useState("white");
-  const [bgColor, setBgColor] = useState("whiteAlpha.50");
+  const [bgColor, setBgColor] = useState("rgba(0, 0, 0, 0)");
   const [scrollY, setScrollY] = useState(0);
 
   const handleScroll = () => {
@@ -21,7 +21,7 @@ export default function Header({ pathname }: { pathname: string }) {
       setBgColor("white");
     } else {
       setColor("white");
-      setBgColor("whiteAlpha.50");
+      setBgColor("rgba(0, 0, 0, 0)");
     }
     return () => {
       window.removeEventListener("scroll", handleScroll);

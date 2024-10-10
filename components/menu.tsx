@@ -24,10 +24,10 @@ type Link = {
 export default function Menu({ color = "black" }: { color?: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const links: Link[] = [
+    { href: "/", text: "TOP" },
     { href: "/about", text: "ABOUT" },
     { href: "/news", text: "NEWS" },
     { href: "/blog", text: "BLOG" },
-    { href: "/member", text: "MEMBER" },
     { href: "/works", text: "WORKS" },
     { href: "/contact", text: "CONTACT" },
   ];
@@ -35,7 +35,11 @@ export default function Menu({ color = "black" }: { color?: string }) {
   return (
     <Box>
       {/* モバイル用メニュー */}
-      <Box lineHeight="80px" display={{ base: "block", md: "none" }}>
+      <Box
+        // ヘッダーの高さ変えたらここを変える
+        lineHeight="60px"
+        display={{ base: "block", md: "none" }}
+      >
         <IconButton
           aria-label="menu"
           icon={<HamburgerIcon />}
@@ -45,6 +49,7 @@ export default function Menu({ color = "black" }: { color?: string }) {
           transition="color 0.3s ease"
           m="0 10px"
           p="0 5px"
+          borderRadius="full"
         />
         <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay />
@@ -83,6 +88,7 @@ export default function Menu({ color = "black" }: { color?: string }) {
                 href={link.href}
                 fontWeight="600"
                 fontSize={{ md: "13px", lg: "15px", xl: "17px" }}
+                // ヘッダーの高さ変えたらここを変える
                 lineHeight="100px"
                 color={color}
                 textDecoration="none"

@@ -16,22 +16,10 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-
-type Link = {
-  href: string;
-  text: string;
-};
+import { links } from "../lib/links";
 
 export default function Navi({ color = "black" }: { color?: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const links: Link[] = [
-    { href: "/", text: "TOP" },
-    { href: "/about", text: "ABOUT" },
-    { href: "/news", text: "NEWS" },
-    { href: "/blog", text: "BLOG" },
-    { href: "/works", text: "WORKS" },
-    { href: "/contact", text: "CONTACT" },
-  ];
 
   return (
     <Box>

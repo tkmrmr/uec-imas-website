@@ -8,3 +8,8 @@ export type NoteData = {
   pageEmbedLinks?: Post[];
   totalCount: number;
 };
+
+export type Link = {
+  href: string;
+  text: string;
+};

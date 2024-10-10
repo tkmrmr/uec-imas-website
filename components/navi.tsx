@@ -13,6 +13,7 @@ import {
   DrawerFooter,
   Button,
   useDisclosure,
+  Divider,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
@@ -58,19 +59,21 @@ export default function Navi({ color = "black" }: { color?: string }) {
             {/* <DrawerHeader>MENU</DrawerHeader> */}
             <DrawerBody p="40px 20px">
               {links.map((link, index) => (
-                <Button
-                  key={index}
-                  as={NextLink}
-                  href={link.href}
-                  borderBottom="1px solid"
-                  w="100%"
-                  onClick={onClose}
-                  borderRadius="none"
-                  bgColor="white"
-                  m="10px 0"
-                >
-                  {link.text}
-                </Button>
+                <Box key={index}>
+                  <Button
+                    as={NextLink}
+                    href={link.href}
+                    // borderBottom="1px solid"
+                    w="100%"
+                    onClick={onClose}
+                    borderRadius="none"
+                    bgColor="white"
+                    m="10px 0"
+                  >
+                    {link.text}
+                  </Button>
+                  <Divider borderColor="black" />
+                </Box>
               ))}
             </DrawerBody>
             <DrawerFooter>

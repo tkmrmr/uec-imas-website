@@ -8,7 +8,8 @@ import {
   Input,
   useColorMode,
   useColorModeValue,
-  Text,
+  Container,
+  // Text,
 } from "@chakra-ui/react";
 
 export default function Home() {
@@ -43,45 +44,42 @@ export default function Home() {
         filter="brightness(90%)"
       >
         <Box position="relative" zIndex={2} textAlign={"center"}>
-          <Text
-            fontSize={{ base: "4xl", md: "8xl" }}
-            fontWeight="bold"
-            color="white"
-          >
+          <Heading fontSize={{ base: "6xl", md: "8xl" }} color="white">
             D@NPEN
-          </Text>
-          <Text fontSize={{ base: "1xl", md: "2xl" }} color="white">
+          </Heading>
+          <Heading fontSize={{ base: "1xl", md: "2xl" }} color="white">
             電気通信大学アイドルマスター研究会
-          </Text>
+          </Heading>
         </Box>
       </Box>
-
-      <Flex height="100vh" alignItems="center" justifyContent="center">
-        <Flex
-          direction="column"
-          background={formBackground}
-          padding={12}
-          rounded={6}
-        >
-          <Heading mb={6}>Log in</Heading>
-          <Input
-            placeholder="sample@sample.com"
-            variant="filled"
-            mb={3}
-            type="email"
-          />
-          <Input
-            placeholder="********"
-            variant="filled"
-            mb={6}
-            type="password"
-          />
-          <Button mb={6} colorScheme="teal">
-            Log in
-          </Button>
-          <Button onClick={toggleColorMode}>Toggle Color Mode</Button>
+      <Container maxW="1100px">
+        <Flex height="100vh" alignItems="center" justifyContent="center">
+          <Flex
+            direction="column"
+            background={formBackground}
+            padding={12}
+            rounded={6}
+          >
+            <Heading mb={6}>Log in</Heading>
+            <Input
+              placeholder="sample@sample.com"
+              variant="filled"
+              mb={3}
+              type="email"
+            />
+            <Input
+              placeholder="********"
+              variant="filled"
+              mb={6}
+              type="password"
+            />
+            <Button mb={6} colorScheme="teal">
+              Log in
+            </Button>
+            <Button onClick={toggleColorMode}>Toggle Color Mode</Button>
+          </Flex>
         </Flex>
-      </Flex>
+      </Container>
     </Box>
   );
 }

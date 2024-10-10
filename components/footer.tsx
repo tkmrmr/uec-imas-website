@@ -5,11 +5,11 @@ export default function Footer() {
     <Box
       as="footer"
       w="100%"
-      h={{ base: "60px", md: "100px" }}
+      h={{ base: "70px", md: "100px" }}
       // borderTop={"1px solid #eee"}
     >
       <Center>
-        <Text lineHeight={{ base: "60px", md: "100px" }}>
+        <Text lineHeight={{ base: "70px", md: "100px" }}>
           &copy; 電気通信大学アイドルマスター研究会
         </Text>
       </Center>

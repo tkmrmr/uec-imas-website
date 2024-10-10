@@ -37,7 +37,7 @@ export default function Menu({ color = "black" }: { color?: string }) {
       {/* モバイル用メニュー */}
       <Box
         // ヘッダーの高さ変えたらここを変える
-        lineHeight="60px"
+        lineHeight="70px"
         display={{ base: "block", md: "none" }}
       >
         <IconButton
@@ -56,7 +56,7 @@ export default function Menu({ color = "black" }: { color?: string }) {
           <DrawerContent>
             <DrawerCloseButton />
             {/* <DrawerHeader>MENU</DrawerHeader> */}
-            <DrawerBody p="20px">
+            <DrawerBody p="40px 20px">
               {links.map((link, index) => (
                 <Button
                   key={index}

@@ -11,7 +11,7 @@ export default function HeaderWrapper({
     <Box
       as="header"
       bg={bgColor}
-      h={{ base: "60px", md: "100px" }}
+      h={{ base: "70px", md: "100px" }}
       w="100%"
       position="fixed"
       top={0}

@@ -12,7 +12,7 @@ export default function Logo() {
           src="/icon.jpg"
           alt="icon"
           maxWidth="60px"
-          w={{ base: "50px", md: "60px" }}
+          w={{ base: "40px", md: "60px" }}
           borderRadius="full"
         />
       </Link>

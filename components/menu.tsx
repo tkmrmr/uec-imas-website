@@ -7,10 +7,10 @@ import {
   IconButton,
   Drawer,
   DrawerBody,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
+  DrawerFooter,
   Button,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -55,21 +55,28 @@ export default function Menu({ color = "black" }: { color?: string }) {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>メニュー</DrawerHeader>
-            <DrawerBody>
+            {/* <DrawerHeader>MENU</DrawerHeader> */}
+            <DrawerBody p="20px">
               {links.map((link, index) => (
                 <Button
                   key={index}
                   as={NextLink}
                   href={link.href}
+                  borderBottom="1px solid"
                   w="100%"
-                  mb={4}
                   onClick={onClose}
+                  borderRadius="none"
+                  bgColor="white"
+                  m="10px 0"
                 >
                   {link.text}
                 </Button>
               ))}
             </DrawerBody>
+            <DrawerFooter>
+              &copy; 電気通信大学
+              <br /> &nbsp;&nbsp;&nbsp; アイドルマスター研究会
+            </DrawerFooter>
           </DrawerContent>
         </Drawer>
       </Box>

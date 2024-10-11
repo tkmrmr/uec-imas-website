@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import HeaderWrapper from "./header-wrapper";
 import Logo from "./logo";
 import Navi from "./navi";
+import useStorage from "../lib/use-storage";
 
 export default function Header({ pathname }: { pathname: string }) {
   const [color, setColor] = useState("white");
   const [bgColor, setBgColor] = useState("rgba(0, 0, 0, 0)");
   const [boxShadow, setBoxShadow] = useState("none");
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useStorage("howScroll", "0");
 
   const handleScroll = () => {
     setScrollY(window.scrollY);

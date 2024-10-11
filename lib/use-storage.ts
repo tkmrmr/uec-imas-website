@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
-export default function useStorge(key: string, initValue: string) {
+export default function useStorge(key: string, initValue: any) {
   const [value, setValue] = useState(initValue);
-  const onChange = (newValue: string) => {
+  const onChange = (newValue: any) => {
     setValue(newValue);
-    localStorage.setItem(key, newValue);
+    if (typeof newValue === "number") {
+      localStorage.setItem(key, newValue.toString());
+    } else {
+      localStorage.setItem(key, newValue);
+    }
   };
 
   useEffect(() => {

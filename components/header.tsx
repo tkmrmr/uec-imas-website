@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 // import { motion } from "framer-motion";
 import HeaderWrapper from "./header-wrapper";
 import Logo from "./logo";
@@ -11,9 +11,9 @@ export default function Header({ pathname }: { pathname: string }) {
   const [boxShadow, setBoxShadow] = useState("none");
   const [scrollY, setScrollY] = useStorage("howScroll", "0");
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     setScrollY(window.scrollY);
-  };
+  }, [setScrollY]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -30,7 +30,7 @@ export default function Header({ pathname }: { pathname: string }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scrollY]);
+  }, [scrollY, handleScroll]);
 
   return (
     <>

@@ -15,6 +15,7 @@ import {
   Text,
   Button,
   SimpleGrid,
+  Divider,
 } from "@chakra-ui/react";
 import { EditIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import useNote from "../../lib/use-note";
@@ -53,7 +54,7 @@ export default function Blog() {
             overflow="hidden"
             variant="outline"
             key={index}
-            m="15px"
+            m="15px 12px"
             transition="transform 0.2s ease"
             _hover={{ boxShadow: "lg" }}
           >
@@ -73,6 +74,7 @@ export default function Blog() {
                 </Text>
               </CardBody>
             </Box>
+            <Divider />
             <CardFooter>
               <Flex alignItems="center" justify="space-between" w="100%">
                 <Flex color="gray.500">

@@ -59,18 +59,14 @@ export default function Blog() {
             _hover={{ boxShadow: "lg" }}
           >
             <Box p="10px">
-              <CardHeader height="6.9em">
-                <Heading fontSize="24px">
-                  {post.title.length > 25
-                    ? `${post.title.slice(0, 26)}…`
-                    : post.title}
+              <CardHeader height="6.2em">
+                <Heading fontSize="24px" noOfLines={2}>
+                  {post.title}
                 </Heading>
               </CardHeader>
               <CardBody>
-                <Text color="gray.400" height="6.9em">
-                  {post.contentSnippet.length > 65
-                    ? `${post.contentSnippet.slice(0, 66)}…`
-                    : post.contentSnippet}
+                <Text color="gray.400" noOfLines={3}>
+                  {post.contentSnippet}
                 </Text>
               </CardBody>
             </Box>

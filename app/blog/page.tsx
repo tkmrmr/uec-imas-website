@@ -10,15 +10,13 @@ import {
   CardFooter,
   Spinner,
   Center,
-  Image,
   Icon,
-  Divider,
   Heading,
   Text,
   Button,
   SimpleGrid,
 } from "@chakra-ui/react";
-import { CalendarIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { EditIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import useNote from "../../lib/use-note";
 
 export default function Blog() {
@@ -52,38 +50,48 @@ export default function Blog() {
       <SimpleGrid columns={[null, 1, 2]} p="30px 0">
         {CurrentPosts?.map((post, index) => (
           <Card
-            as="a"
-            href={post.link}
             overflow="hidden"
             variant="outline"
             key={index}
             m="15px"
-            role="group"
+            transition="transform 0.2s ease"
             _hover={{ boxShadow: "lg" }}
           >
             <Box p="10px">
-              <CardHeader>
-                <Flex justify="space-between">
-                  <Image src="/note_logo.png" alt="" maxW="70px" />
-                  <Flex color="gray.500">
-                    <Icon as={CalendarIcon} m="4px" />
-                    {post.date}
-                  </Flex>
-                </Flex>
+              <CardHeader height="6.9em">
+                <Heading fontSize="24px">
+                  {post.title.length > 25
+                    ? `${post.title.slice(0, 26)}…`
+                    : post.title}
+                </Heading>
               </CardHeader>
               <CardBody>
-                <Heading fontSize="24px">{post.title}</Heading>
+                <Text color="gray.400" height="6.9em">
+                  {post.contentSnippet.length > 65
+                    ? `${post.contentSnippet.slice(0, 66)}…`
+                    : post.contentSnippet}
+                </Text>
               </CardBody>
             </Box>
-            <Divider />
             <CardFooter>
               <Flex alignItems="center" justify="space-between" w="100%">
-                <Text>続きを読む</Text>
-                <Icon
-                  as={ArrowForwardIcon}
-                  fontSize="24px"
-                  _groupHover={{ transform: "translateX(4px)" }}
-                />
+                <Flex color="gray.500">
+                  <Icon as={EditIcon} m="4px" />
+                  {post.date}
+                </Flex>
+                <Flex
+                  as="a"
+                  href={post.link}
+                  alignItems="center"
+                  transition="transform 0.2s ease"
+                  _hover={{
+                    transform: "scale(1.05)",
+                    textDecoration: "underline",
+                  }}
+                >
+                  <Text>続きを読む</Text>
+                  <Icon as={ChevronRightIcon} mt="4px" boxSize="22px" />
+                </Flex>
               </Flex>
             </CardFooter>
           </Card>

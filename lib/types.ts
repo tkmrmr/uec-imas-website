@@ -2,6 +2,7 @@ type Post = {
   title: string;
   date: string;
   link: string;
+  contentSnippet: string;
 };
 
 export type NoteData = {

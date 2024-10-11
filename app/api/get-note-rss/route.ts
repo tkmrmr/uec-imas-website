@@ -10,6 +10,7 @@ const getNoteEmbedLink = async (): Promise<NoteData> => {
       title: item.title ?? "",
       date: item.pubDate ? dayjs(item.pubDate).format("YYYY/MM/DD") : "",
       link: item.link ?? "https://note.com/amatkmr",
+      contentSnippet: item.contentSnippet?.replace("\n続きをみる", "") ?? "",
     })),
     totalCount: rssFeed.items.length ?? 0,
   };

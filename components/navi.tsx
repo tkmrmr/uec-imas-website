@@ -10,7 +10,6 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  DrawerFooter,
   Button,
   useDisclosure,
   Divider,

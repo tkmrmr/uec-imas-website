@@ -7,6 +7,7 @@ import Navi from "./navi";
 export default function Header({ pathname }: { pathname: string }) {
   const [color, setColor] = useState("white");
   const [bgColor, setBgColor] = useState("rgba(0, 0, 0, 0)");
+  const [boxShadow, setBoxShadow] = useState("none");
   const [scrollY, setScrollY] = useState(0);
 
   const handleScroll = () => {
@@ -18,10 +19,12 @@ export default function Header({ pathname }: { pathname: string }) {
 
     if (scrollY > 0) {
       setColor("black");
-      setBgColor("white");
+      setBgColor("whiteAlpha.800");
+      setBoxShadow("md");
     } else {
       setColor("white");
       setBgColor("rgba(0, 0, 0, 0)");
+      setBoxShadow("none");
     }
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -31,12 +34,12 @@ export default function Header({ pathname }: { pathname: string }) {
   return (
     <>
       {pathname === "/" ? (
-        <HeaderWrapper bgColor={bgColor}>
+        <HeaderWrapper bgColor={bgColor} boxShadow={boxShadow}>
           <Logo />
           <Navi color={color} />
         </HeaderWrapper>
       ) : (
-        <HeaderWrapper bgColor="white">
+        <HeaderWrapper bgColor="whiteAlpha.800" boxShadow="md">
           <Logo />
           <Navi />
         </HeaderWrapper>

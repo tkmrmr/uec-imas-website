@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={notoSansJP.className}>
         <Providers>
-          <Flex direction="column" minH="100vh">
+          <Flex direction="column" minH="100vh" bgColor="gray.50">
             <Header pathname={pathname} />
             {pathname !== "/" && pathnameExists && (
               <PageHeader pathname={pathname.slice(1)} />

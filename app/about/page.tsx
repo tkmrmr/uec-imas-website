@@ -9,8 +9,14 @@ const Dd = chakra("dd");
 export default function About() {
   return (
     <Box m="40px">
-      <Stack spacing={8}>
-        <Box>
+      <Stack spacing={5}>
+        <Box
+          bgColor="white"
+          border="1px solid #E2E8F0"
+          borderRadius="2xl"
+          boxShadow="lg"
+          p="30px"
+        >
           <Heading>D@NPENについて</Heading>
           <Text whiteSpace="pre-line" mt="1.5rem">
             {`D@NPEN（電気通信大学アイドルマスター研究会）は、電気通信大学のプロデューサー有志により結成された学友会公認サークルです。
@@ -23,7 +29,13 @@ export default function About() {
               同僚と語りたいことはあるのに語る場所がない。自分を表現したいのにする場所がない。他の同僚と話したいけど勇気がない。自分が成し得たことを残しておきたい。そんなPたちが集まれる場所として、D@NPENは存在してほしいと願っております。`}
           </Text>
         </Box>
-        <Box>
+        <Box
+          bgColor="white"
+          border="1px solid #E2E8F0"
+          borderRadius="2xl"
+          boxShadow="lg"
+          p="30px"
+        >
           <Heading>活動内容</Heading>
           <Dl mt="1.5rem">
             <Dt fontWeight="bold" my={2}>
@@ -48,7 +60,13 @@ export default function About() {
             </Dd>
           </Dl>
         </Box>
-        <Box>
+        <Box
+          bgColor="white"
+          border="1px solid #E2E8F0"
+          borderRadius="2xl"
+          boxShadow="lg"
+          p="30px"
+        >
           <Heading>会費</Heading>
           <Text mt="1.5rem">
             会費はかかりません。ただし、部会参加時には会場の利用料の一部を徴収する場合があります。

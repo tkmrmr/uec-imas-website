@@ -18,10 +18,10 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { EditIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import useNote from "../../lib/use-note";
 
-const Motion = motion.div;
+// const Motion = motion.div;
 
 export default function Blog() {
   const { noteData, isLoading } = useNote();
@@ -50,7 +50,7 @@ export default function Blog() {
   return (
     <Box>
       {/* 記事表示部分 */}
-      <SimpleGrid columns={[null, 1, 2]} pb="20px">
+      <SimpleGrid columns={[null, 1, 2]} mb="20px" p="30px">
         {CurrentPosts?.map((post, index) => (
           // <Motion
           //   initial={{ y: 20, opacity: "0" }}
@@ -66,7 +66,8 @@ export default function Blog() {
             variant="outline"
             m="15px 12px"
             transition="transform 0.2s ease"
-            _hover={{ boxShadow: "lg" }}
+            boxShadow="lg"
+            _hover={{ boxShadow: "xl" }}
           >
             <Box p="10px">
               <CardHeader height="6.2em" mb="-20px">

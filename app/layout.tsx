@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Container, Flex } from "@chakra-ui/react";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import PageHeader from "@/components/page-header";
+import PageHeader from "@/components/page-title";
 import { links } from "../lib/links";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], weight: ["400"] });

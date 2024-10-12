@@ -52,58 +52,58 @@ export default function Blog() {
       {/* 記事表示部分 */}
       <SimpleGrid columns={[null, 1, 2]} pb="20px">
         {CurrentPosts?.map((post, index) => (
-          <Motion
+          // <Motion
+          //   initial={{ y: 20, opacity: "0" }}
+          //   whileInView={{ y: 0, opacity: 1 }}
+          //   transition={{
+          //     duration: 0.4,
+          //   }}
+          //   viewport={{ once: true }}
+          // >
+          <Card
             key={index}
-            initial={{ y: 20, opacity: "0" }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{
-              duration: 0.4,
-            }}
-            viewport={{ once: true }}
+            overflow="hidden"
+            variant="outline"
+            m="15px 12px"
+            transition="transform 0.2s ease"
+            _hover={{ boxShadow: "lg" }}
           >
-            <Card
-              overflow="hidden"
-              variant="outline"
-              m="15px 12px"
-              transition="transform 0.2s ease"
-              _hover={{ boxShadow: "lg" }}
-            >
-              <Box p="10px">
-                <CardHeader height="6.2em" mb="-20px">
-                  <Heading fontSize="24px" noOfLines={2}>
-                    {post.title}
-                  </Heading>
-                </CardHeader>
-                <CardBody>
-                  <Text color="gray.400" height="4.5em" noOfLines={3}>
-                    {post.contentSnippet}
-                  </Text>
-                </CardBody>
-              </Box>
-              <Divider />
-              <CardFooter>
-                <Flex alignItems="center" justify="space-between" w="100%">
-                  <Flex color="gray.500">
-                    <Icon as={EditIcon} m="4px" />
-                    {post.date}
-                  </Flex>
-                  <Flex
-                    as="a"
-                    href={post.link}
-                    alignItems="center"
-                    transition="transform 0.2s ease"
-                    _hover={{
-                      transform: "scale(1.05)",
-                      textDecoration: "underline",
-                    }}
-                  >
-                    <Text>続きを読む</Text>
-                    <Icon as={ChevronRightIcon} mt="4px" boxSize="22px" />
-                  </Flex>
+            <Box p="10px">
+              <CardHeader height="6.2em" mb="-20px">
+                <Heading fontSize="24px" noOfLines={2}>
+                  {post.title}
+                </Heading>
+              </CardHeader>
+              <CardBody>
+                <Text color="gray.400" height="4.5em" noOfLines={3}>
+                  {post.contentSnippet}
+                </Text>
+              </CardBody>
+            </Box>
+            <Divider />
+            <CardFooter>
+              <Flex alignItems="center" justify="space-between" w="100%">
+                <Flex color="gray.500">
+                  <Icon as={EditIcon} m="4px" />
+                  {post.date}
                 </Flex>
-              </CardFooter>
-            </Card>
-          </Motion>
+                <Flex
+                  as="a"
+                  href={post.link}
+                  alignItems="center"
+                  transition="transform 0.2s ease"
+                  _hover={{
+                    transform: "scale(1.05)",
+                    textDecoration: "underline",
+                  }}
+                >
+                  <Text>続きを読む</Text>
+                  <Icon as={ChevronRightIcon} mt="4px" boxSize="22px" />
+                </Flex>
+              </Flex>
+            </CardFooter>
+          </Card>
+          // </Motion>
         ))}
       </SimpleGrid>
 

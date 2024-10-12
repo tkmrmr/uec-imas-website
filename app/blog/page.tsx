@@ -18,7 +18,10 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { EditIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { motion } from "framer-motion";
 import useNote from "../../lib/use-note";
+
+const Motion = motion.div;
 
 export default function Blog() {
   const { noteData, isLoading } = useNote();
@@ -47,52 +50,60 @@ export default function Blog() {
   return (
     <Box>
       {/* 記事表示部分 */}
-      {/* <Flex wrap="wrap" p="30px 0" justify="center"> */}
-      <SimpleGrid columns={[null, 1, 2]} p="30px 0">
+      <SimpleGrid columns={[null, 1, 2]} pb="20px">
         {CurrentPosts?.map((post, index) => (
-          <Card
-            overflow="hidden"
-            variant="outline"
+          <Motion
             key={index}
-            m="15px 12px"
-            transition="transform 0.2s ease"
-            _hover={{ boxShadow: "lg" }}
+            initial={{ y: 20, opacity: "0" }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 0.4,
+            }}
+            viewport={{ once: true }}
           >
-            <Box p="10px">
-              <CardHeader height="6.2em">
-                <Heading fontSize="24px" noOfLines={2}>
-                  {post.title}
-                </Heading>
-              </CardHeader>
-              <CardBody>
-                <Text color="gray.400" noOfLines={3}>
-                  {post.contentSnippet}
-                </Text>
-              </CardBody>
-            </Box>
-            <Divider />
-            <CardFooter>
-              <Flex alignItems="center" justify="space-between" w="100%">
-                <Flex color="gray.500">
-                  <Icon as={EditIcon} m="4px" />
-                  {post.date}
+            <Card
+              overflow="hidden"
+              variant="outline"
+              m="15px 12px"
+              transition="transform 0.2s ease"
+              _hover={{ boxShadow: "lg" }}
+            >
+              <Box p="10px">
+                <CardHeader height="6.2em" mb="-20px">
+                  <Heading fontSize="24px" noOfLines={2}>
+                    {post.title}
+                  </Heading>
+                </CardHeader>
+                <CardBody>
+                  <Text color="gray.400" height="4.5em" noOfLines={3}>
+                    {post.contentSnippet}
+                  </Text>
+                </CardBody>
+              </Box>
+              <Divider />
+              <CardFooter>
+                <Flex alignItems="center" justify="space-between" w="100%">
+                  <Flex color="gray.500">
+                    <Icon as={EditIcon} m="4px" />
+                    {post.date}
+                  </Flex>
+                  <Flex
+                    as="a"
+                    href={post.link}
+                    alignItems="center"
+                    transition="transform 0.2s ease"
+                    _hover={{
+                      transform: "scale(1.05)",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    <Text>続きを読む</Text>
+                    <Icon as={ChevronRightIcon} mt="4px" boxSize="22px" />
+                  </Flex>
                 </Flex>
-                <Flex
-                  as="a"
-                  href={post.link}
-                  alignItems="center"
-                  transition="transform 0.2s ease"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    textDecoration: "underline",
-                  }}
-                >
-                  <Text>続きを読む</Text>
-                  <Icon as={ChevronRightIcon} mt="4px" boxSize="22px" />
-                </Flex>
-              </Flex>
-            </CardFooter>
-          </Card>
+              </CardFooter>
+            </Card>
+          </Motion>
         ))}
       </SimpleGrid>
 

@@ -24,9 +24,7 @@ export default function Contact() {
           boxShadow="lg"
           p="30px"
         >
-          <Heading py="5px" pb="8px">
-            お問い合わせ
-          </Heading>
+          <Heading py="5px">お問い合わせ</Heading>
           <Form />
         </Box>
         <Box

@@ -48,9 +48,9 @@ export default function Blog() {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <Box>
+    <Box m="40px">
       {/* 記事表示部分 */}
-      <SimpleGrid columns={[null, 1, 2]} mb="20px" p="30px">
+      <SimpleGrid columns={[null, 1, 2]} mb="20px">
         {CurrentPosts?.map((post, index) => (
           // <Motion
           //   initial={{ y: 20, opacity: "0" }}

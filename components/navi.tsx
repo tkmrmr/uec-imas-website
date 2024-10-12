@@ -26,7 +26,7 @@ export default function Navi({ color = "black" }: { color?: string }) {
       <Box
         // ヘッダーの高さ変えたらここを変える
         lineHeight="70px"
-        display={{ base: "block", md: "none" }}
+        display={{ base: "block", sm: "none" }}
       >
         <IconButton
           aria-label="menu"
@@ -67,20 +67,19 @@ export default function Navi({ color = "black" }: { color?: string }) {
         </Drawer>
       </Box>
       {/* デスクトップ用メニュー */}
-      <Box display={{ base: "none", md: "block" }}>
+      <Box display={{ base: "none", sm: "block" }}>
         <UnorderedList display="flex">
           {links.map((link, index) => (
             <ListItem
               key={index}
-              m={{ md: "0 10px", lg: "0 15px", xl: "0 20px" }}
-              p="0 10px"
+              p={{ sm: "0 12px", md: "0 18px", lg: "0 24px", xl: "0 30px" }}
               listStyleType="none"
             >
               <Link
                 as={NextLink}
                 href={link.href}
                 fontWeight="600"
-                fontSize={{ md: "13px", lg: "15px", xl: "17px" }}
+                fontSize={{ sm: "14px", md: "17px" }}
                 // ヘッダーの高さ変えたらここを変える
                 lineHeight="100px"
                 color={color}

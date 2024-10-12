@@ -14,7 +14,7 @@ export default function HeaderWrapper({
       as="header"
       bg={bgColor}
       backdropFilter="blur(4px)"
-      h={{ base: "70px", md: "100px" }}
+      h={{ base: "70px", sm: "100px" }}
       w="100%"
       position="fixed"
       top={0}

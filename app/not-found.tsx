@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <Box>
       <Center height="50vh">
-        <Flex direction="column" align="center" gap="4">
+        <Flex direction="column" align="center" gap="7">
           <Heading>ページが見つかりません</Heading>
           <Link
             as={NextLink}

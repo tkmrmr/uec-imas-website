@@ -19,7 +19,10 @@ const contactSchema = z.object({
     .min(1, "1文字以上で入力してください。")
     .max(20, "20文字以下で入力してください。"),
   email: z.string().email("メールアドレスの形式で入力してください。"),
-  content: z.string().max(200, "200文字以下で入力してください。"),
+  content: z
+    .string()
+    .min(1, "1文字以上で入力してください。")
+    .max(200, "200文字以下で入力してください。"),
 });
 
 type Contact = z.infer<typeof contactSchema>;
@@ -45,10 +48,10 @@ export default function Form() {
   return (
     <Box>
       {isSubmitted && (
-        <Text>送信しました。返信までしばらくお待ちください。</Text>
+        <Text pt="8px">送信しました。返信までしばらくお待ちください。</Text>
       )}
       {!isSubmitted && (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} method="POST">
           <Stack spacing={4} pt="8px">
             <FormControl isRequired>
               <FormLabel htmlFor="name">お名前</FormLabel>
@@ -88,7 +91,12 @@ export default function Form() {
               )}
             </FormControl>
             <Center>
-              <Button type="submit" disabled={!isValid}>
+              <Button
+                type="submit"
+                disabled={!isValid}
+                isLoading={isSubmitted}
+                colorScheme="teal"
+              >
                 送信
               </Button>
             </Center>

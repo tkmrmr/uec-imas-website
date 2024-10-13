@@ -31,28 +31,35 @@ export default function Form() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitted },
+    formState: { errors, isValid, isSubmitSuccessful, isSubmitting },
   } = useForm<Contact>({
-    mode: "onChange",
+    mode: "onSubmit",
     resolver: zodResolver(contactSchema),
     defaultValues: { name: "", email: "", content: "" },
   });
 
   const onSubmit = handleSubmit(async (data: Contact) => {
-    await fetch("/api/send-email", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+    // await fetch("/api/send-email", {
+    if (isValid) {
+      await fetch("", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+    }
   });
 
   return (
     <Box>
-      {isSubmitted ? (
-        <Text pt="8px">送信しました。返信までしばらくお待ちください。</Text>
+      {isSubmitSuccessful ? (
+        <Text pt="8px">
+          送信しました。
+          <br />
+          担当者が確認しますので、返信までしばらくお待ちください。
+        </Text>
       ) : (
         <form onSubmit={onSubmit} method="POST">
           <Stack spacing={4} pt="8px">
-            <FormControl isRequired>
+            <FormControl>
               <FormLabel htmlFor="name">お名前</FormLabel>
               <Input
                 type="text"
@@ -64,10 +71,9 @@ export default function Form() {
                 <Text color="red.500">{errors.name.message}</Text>
               )}
             </FormControl>
-            <FormControl isRequired>
+            <FormControl>
               <FormLabel htmlFor="email">メールアドレス</FormLabel>
               <Input
-                type="email"
                 id="email"
                 placeholder="dentsutaro@uec.ac.jp"
                 {...register("email")}
@@ -76,7 +82,7 @@ export default function Form() {
                 <Text color="red.500">{errors.email.message}</Text>
               )}
             </FormControl>
-            <FormControl isRequired>
+            <FormControl>
               <FormLabel htmlFor="content">お問い合わせ内容</FormLabel>
               <Textarea
                 placeholder=""
@@ -92,8 +98,9 @@ export default function Form() {
             <Center>
               <Button
                 type="submit"
-                disabled={!isValid}
-                isLoading={isSubmitted}
+                disabled={isSubmitting}
+                isLoading={isSubmitting}
+                loadingText="送信中"
                 colorScheme="teal"
               >
                 送信

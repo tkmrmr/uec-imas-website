@@ -35,8 +35,8 @@ type Contact = z.infer<typeof contactSchema>;
 export default function Form() {
   const [isOnLoad, setisOnLoad] = useState(false);
   const recaptchaSize = useBreakpointValue({
-    base: "compact", // 画面幅が小さい場合
-    sm: "normal", // 画面幅が大きい場合
+    base: "compact",
+    sm: "normal",
   });
 
   const {
@@ -150,7 +150,7 @@ export default function Form() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  isOnLoading={isSubmitting}
+                  isLoading={isSubmitting}
                   loadingText="送信中"
                   colorScheme="teal"
                 >

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Input,
@@ -8,10 +9,13 @@ import {
   Button,
   Center,
   Stack,
+  useBreakpointValue,
+  Spinner,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const contactSchema = z.object({
   name: z
@@ -23,14 +27,22 @@ const contactSchema = z.object({
     .string()
     .min(1, "1文字以上で入力してください。")
     .max(200, "200文字以下で入力してください。"),
+  token: z.string(),
 });
 
 type Contact = z.infer<typeof contactSchema>;
 
 export default function Form() {
+  const [isOnLoad, setisOnLoad] = useState(false);
+  const recaptchaSize = useBreakpointValue({
+    base: "compact", // 画面幅が小さい場合
+    sm: "normal", // 画面幅が大きい場合
+  });
+
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isValid, isSubmitSuccessful, isSubmitting },
   } = useForm<Contact>({
     mode: "onSubmit",
@@ -39,14 +51,22 @@ export default function Form() {
   });
 
   const onSubmit = handleSubmit(async (data: Contact) => {
-    // await fetch("/api/send-email", {
     if (isValid) {
-      await fetch("", {
+      await fetch("/api/send-email", {
         method: "POST",
         body: JSON.stringify(data),
       });
     }
   });
+
+  const onChange = (value: string) => {
+    setValue("token", value);
+    console.log("Captcha value:", value);
+  };
+
+  const OnLoad = () => {
+    setisOnLoad(true);
+  };
 
   return (
     <Box>
@@ -96,15 +116,47 @@ export default function Form() {
               )}
             </FormControl>
             <Center>
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                isLoading={isSubmitting}
-                loadingText="送信中"
-                colorScheme="teal"
-              >
-                送信
-              </Button>
+              <Stack spacing={4}>
+                <Box>
+                  {!isOnLoad && (
+                    <Box
+                      textAlign="center"
+                      my={4}
+                      w={{ base: "164px", sm: "304px" }}
+                      h={{ base: "112px", sm: "46px" }}
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <Spinner
+                        size={{ base: "xl", sm: "lg" }}
+                        lineHeight="50%"
+                      />
+                    </Box>
+                  )}
+                  <Box
+                    style={{
+                      visibility: isOnLoad ? "visible" : "hidden",
+                    }}
+                  >
+                    <ReCAPTCHA
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                      onChange={onChange}
+                      size={recaptchaSize}
+                      asyncScriptOnLoad={OnLoad}
+                    />
+                  </Box>
+                </Box>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  isOnLoading={isSubmitting}
+                  loadingText="送信中"
+                  colorScheme="teal"
+                >
+                  送信
+                </Button>
+              </Stack>
             </Center>
           </Stack>
         </form>

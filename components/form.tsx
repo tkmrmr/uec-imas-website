@@ -47,10 +47,9 @@ export default function Form() {
 
   return (
     <Box>
-      {isSubmitted && (
+      {isSubmitted ? (
         <Text pt="8px">送信しました。返信までしばらくお待ちください。</Text>
-      )}
-      {!isSubmitted && (
+      ) : (
         <form onSubmit={onSubmit} method="POST">
           <Stack spacing={4} pt="8px">
             <FormControl isRequired>

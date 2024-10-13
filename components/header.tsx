@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-// import { motion } from "framer-motion";
 import HeaderWrapper from "./header-wrapper";
 import Logo from "./logo";
 import Navi from "./navi";
@@ -9,16 +8,17 @@ export default function Header({ pathname }: { pathname: string }) {
   const [color, setColor] = useState("white");
   const [bgColor, setBgColor] = useState("rgba(0, 0, 0, 0)");
   const [boxShadow, setBoxShadow] = useState("none");
-  const [scrollY, setScrollY] = useStorage("howScroll", "0");
+  const [, setScrollY] = useStorage("howScroll", "0");
 
   const handleScroll = useCallback(() => {
     setScrollY(window.scrollY);
   }, [setScrollY]);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const initialScrollY = window.scrollY;
+    setScrollY(initialScrollY);
 
-    if (scrollY > 0) {
+    if (initialScrollY > 0) {
       setColor("black");
       setBgColor("whiteAlpha.800");
       setBoxShadow("md");
@@ -27,10 +27,12 @@ export default function Header({ pathname }: { pathname: string }) {
       setBgColor("rgba(0, 0, 0, 0)");
       setBoxShadow("none");
     }
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scrollY, handleScroll]);
+  }, [handleScroll, setScrollY]);
 
   return (
     <>

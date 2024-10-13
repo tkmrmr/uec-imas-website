@@ -8,7 +8,7 @@ const Dd = chakra("dd");
 
 export default function About() {
   return (
-    <Box m="40px">
+    <Box m={{ base: "40px 10px", sm: "40px" }}>
       <Stack spacing={5}>
         <Box
           bgColor="white"

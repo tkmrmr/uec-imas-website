@@ -25,7 +25,7 @@ export default function RootLayout({
     }
   }
   return (
-    <html lang="ja">
+    <html lang="ja" style={{ scrollbarGutter: "stable" }}>
       <body className={notoSansJP.className}>
         <Providers>
           <Flex direction="column" minH="100vh" bgColor="gray.50">

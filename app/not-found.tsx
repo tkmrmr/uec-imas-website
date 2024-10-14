@@ -3,7 +3,7 @@ import { Box, Heading, Center, Link, Button, Flex } from "@chakra-ui/react";
 
 export default function NotFound() {
   return (
-    <Box>
+    <Box m={{ base: "40px 10px", sm: "40px" }}>
       <Center height="50vh">
         <Flex direction="column" align="center" gap="7">
           <Heading>ページが見つかりません</Heading>

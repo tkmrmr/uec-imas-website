@@ -24,7 +24,7 @@ export default function Footer() {
     >
       <Box h="350px" py="12px">
         <Stack align="center" gap={14} justify="center" h="100%">
-          <Flex gap={10} wrap="wrap" rowGap={7} justify="center">
+          <Flex gap={10} wrap="wrap" rowGap={5} justify="center">
             <Link href="/" _hover={{ textDecor: "none" }}>
               ホーム
             </Link>

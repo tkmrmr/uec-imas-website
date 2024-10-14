@@ -17,7 +17,7 @@ import {
   SimpleGrid,
   Divider,
 } from "@chakra-ui/react";
-import { EditIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { EditIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 // import { motion } from "framer-motion";
 import useNote from "../../lib/use-note";
 
@@ -99,7 +99,7 @@ export default function Blog() {
                   }}
                 >
                   <Text>続きを読む</Text>
-                  <Icon as={ChevronRightIcon} mt="4px" boxSize="22px" />
+                  <Icon as={ExternalLinkIcon} pl="2px" boxSize="20px" />
                 </Flex>
               </Flex>
             </CardFooter>

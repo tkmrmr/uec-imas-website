@@ -47,7 +47,7 @@ export default function Form() {
   } = useForm<Contact>({
     mode: "onSubmit",
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: "", email: "", content: "" },
+    defaultValues: { name: "", email: "", content: "", token: "" },
   });
 
   const onSubmit = handleSubmit(async (data: Contact) => {

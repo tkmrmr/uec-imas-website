@@ -59,7 +59,9 @@ export default function Home() {
           bgGradient="linear(to-r, teal.50, teal.500)"
           bgClip="text"
         >
-          <Heading fontSize={{ base: "6xl", md: "8xl" }}>D@NPEN</Heading>
+          <Heading fontSize={{ base: "6xl", sm: "7xl", md: "8xl" }}>
+            D@NPEN
+          </Heading>
           <Heading fontSize={{ base: "1xl", md: "2xl" }}>
             電気通信大学アイドルマスター研究会
           </Heading>

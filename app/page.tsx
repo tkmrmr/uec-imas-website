@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <Box>
-      {/* トップ */}
+      {/* ヒーローセクション */}
       <Box
         bgImage="/top.png"
         bgSize="cover"
@@ -59,11 +59,22 @@ export default function Home() {
           </Heading>
         </Box>
       </Box>
-      <Container maxW="1000px" flex="1">
-        <Stack spacing={5}>
-          <Box p={4}>
-            <Heading textAlign="center" py={6}>
-              News
+
+      {/* メインコンテンツ */}
+      <Container maxW="1100px" flex="1">
+        <Stack spacing={5} mt={7}>
+          {/* お知らせ */}
+          <Box pb={5}>
+            <Heading
+              textAlign="center"
+              pt={6}
+              pb={12}
+              textDecor="underline"
+              color="gray.900"
+              textUnderlineOffset="15px"
+              textDecorationColor="teal.400"
+            >
+              お知らせ
             </Heading>
             <Box
               bgColor="white"
@@ -77,9 +88,18 @@ export default function Home() {
               </Text>
             </Box>
           </Box>
-          <SimpleGrid columns={[null, 1, 2]}>
-            <Box p={4}>
-              <Heading textAlign="center" py={6}>
+          {/* note */}
+          <SimpleGrid columns={[null, 1, 2]} gap={{ base: 0, md: 6 }}>
+            <Box pb={5}>
+              <Heading
+                textAlign="center"
+                pt={6}
+                pb={12}
+                textDecor="underline"
+                color="gray.900"
+                textUnderlineOffset="15px"
+                textDecorationColor="teal.400"
+              >
                 新着記事
               </Heading>
               <Box
@@ -102,9 +122,7 @@ export default function Home() {
                         index={index}
                         boxShadow="none"
                         margin={
-                          index < NewPosts.length / 2
-                            ? "6px 0 0 0 "
-                            : "0 6px 0 0"
+                          index < NewPosts.length / 2 ? " 0 0 6px " : "6px  0 "
                         }
                       />
                     ))}
@@ -112,8 +130,17 @@ export default function Home() {
                 )}
               </Box>
             </Box>
-            <Box p={4}>
-              <Heading textAlign="center" py={6}>
+            {/* Twitter */}
+            <Box pb={5}>
+              <Heading
+                textAlign="center"
+                pt={6}
+                pb={12}
+                textDecor="underline"
+                color="gray.900"
+                textUnderlineOffset="15px"
+                textDecorationColor="teal.400"
+              >
                 Twitter
               </Heading>
               <Box

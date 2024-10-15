@@ -34,7 +34,7 @@ export default function RootLayout({
               <PageHeader pathname={pathname.slice(1)} />
             )}
             {pathname !== "/" ? (
-              <Container maxW="1000px" flex="1">
+              <Container maxW="1100px" flex="1">
                 {children}
               </Container>
             ) : (

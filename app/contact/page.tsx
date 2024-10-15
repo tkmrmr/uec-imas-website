@@ -7,7 +7,7 @@ import Form from "../../components/form";
 export default function Contact() {
   return (
     <Box m={{ base: "40px 10px", sm: "40px 30px" }}>
-      <Text pb="30px">
+      <Text pb="30px" px={10}>
         D@NPENでは、通年で新規入会者を募集しています。
         <br />
         お問い合わせ・入会希望は以下のフォーム、もしくは

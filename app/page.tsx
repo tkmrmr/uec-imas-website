@@ -52,11 +52,15 @@ export default function Home() {
         }}
         filter="brightness(90%)"
       >
-        <Box position="relative" zIndex={2} textAlign={"center"}>
-          <Heading fontSize={{ base: "6xl", md: "8xl" }} color="white">
-            D@NPEN
-          </Heading>
-          <Heading fontSize={{ base: "1xl", md: "2xl" }} color="white">
+        <Box
+          position="relative"
+          zIndex={2}
+          textAlign={"center"}
+          bgGradient="linear(to-r, teal.50, teal.500)"
+          bgClip="text"
+        >
+          <Heading fontSize={{ base: "6xl", md: "8xl" }}>D@NPEN</Heading>
+          <Heading fontSize={{ base: "1xl", md: "2xl" }}>
             電気通信大学アイドルマスター研究会
           </Heading>
         </Box>

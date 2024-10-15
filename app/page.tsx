@@ -11,7 +11,7 @@ import {
   Spinner,
   Center,
 } from "@chakra-ui/react";
-import { TwitterTimelineEmbed } from "react-twitter-embed";
+import { Timeline, eagerLoadTwitterLibrary } from "react-twitter-widgets";
 import ArticleCard from "../components/article-card";
 import useNote from "../lib/use-note";
 
@@ -22,6 +22,8 @@ export default function Home() {
   preload("/top.png", {
     as: "image",
   });
+
+  eagerLoadTwitterLibrary();
 
   return (
     <Box>
@@ -61,35 +63,10 @@ export default function Home() {
       </Box>
 
       {/* メインコンテンツ */}
-      <Container maxW="1100px" flex="1">
-        <Stack spacing={5} mt={7}>
-          {/* お知らせ */}
-          <Box pb={5}>
-            <Heading
-              textAlign="center"
-              pt={6}
-              pb={12}
-              textDecor="underline"
-              color="gray.900"
-              textUnderlineOffset="15px"
-              textDecorationColor="teal.400"
-            >
-              お知らせ
-            </Heading>
-            <Box
-              bgColor="white"
-              border="1px solid #E2E8F0"
-              borderRadius="2xl"
-              boxShadow="lg"
-              p={7}
-            >
-              <Text textAlign="center" fontSize="lg">
-                特にお知らせはありません。
-              </Text>
-            </Box>
-          </Box>
-          {/* note */}
-          <SimpleGrid columns={[null, 1, 2]} gap={{ base: 0, md: 6 }}>
+      <Container maxW="1100px">
+        <Box m="40px 10px">
+          <Stack spacing={5}>
+            {/* お知らせ */}
             <Box pb={5}>
               <Heading
                 textAlign="center"
@@ -97,10 +74,10 @@ export default function Home() {
                 pb={12}
                 textDecor="underline"
                 color="gray.900"
-                textUnderlineOffset="15px"
+                textUnderlineOffset="14px"
                 textDecorationColor="teal.400"
               >
-                新着記事
+                お知らせ
               </Heading>
               <Box
                 bgColor="white"
@@ -109,56 +86,88 @@ export default function Home() {
                 boxShadow="lg"
                 p={7}
               >
-                {isLoading ? (
-                  <Center h="600px">
-                    <Spinner size="xl" />
-                  </Center>
-                ) : (
-                  <SimpleGrid h="600px">
-                    {NewPosts?.map((post, index) => (
-                      <ArticleCard
-                        key={index}
-                        post={post}
-                        index={index}
-                        boxShadow="none"
-                        margin={
-                          index < NewPosts.length / 2 ? " 0 0 6px " : "6px  0 "
-                        }
-                      />
-                    ))}
-                  </SimpleGrid>
-                )}
+                <Text textAlign="center" fontSize="lg">
+                  特にお知らせはありません。
+                </Text>
               </Box>
             </Box>
-            {/* Twitter */}
-            <Box pb={5}>
-              <Heading
-                textAlign="center"
-                pt={6}
-                pb={12}
-                textDecor="underline"
-                color="gray.900"
-                textUnderlineOffset="15px"
-                textDecorationColor="teal.400"
-              >
-                Twitter
-              </Heading>
-              <Box
-                bgColor="white"
-                border="1px solid #E2E8F0"
-                borderRadius="2xl"
-                boxShadow="lg"
-                p={7}
-              >
-                <TwitterTimelineEmbed
-                  sourceType="profile"
-                  screenName="uec_imas"
-                  options={{ height: 600 }}
-                />
+            {/* note */}
+            <SimpleGrid columns={[null, 1, 2]} gap={{ base: 0, md: 6 }}>
+              <Box pb={5}>
+                <Heading
+                  textAlign="center"
+                  pt={6}
+                  pb={12}
+                  textDecor="underline"
+                  color="gray.900"
+                  textUnderlineOffset="14px"
+                  textDecorationColor="teal.400"
+                >
+                  新着記事
+                </Heading>
+                <Box
+                  bgColor="white"
+                  border="1px solid #E2E8F0"
+                  borderRadius="2xl"
+                  boxShadow="lg"
+                  p={7}
+                >
+                  {isLoading ? (
+                    <Center h="600px">
+                      <Spinner size="xl" />
+                    </Center>
+                  ) : (
+                    <SimpleGrid h="600px">
+                      {NewPosts?.map((post, index) => (
+                        <ArticleCard
+                          key={index}
+                          post={post}
+                          index={index}
+                          boxShadow="none"
+                          margin={
+                            index < NewPosts.length / 2
+                              ? " 0 0 6px "
+                              : "6px  0 "
+                          }
+                        />
+                      ))}
+                    </SimpleGrid>
+                  )}
+                </Box>
               </Box>
-            </Box>
-          </SimpleGrid>
-        </Stack>
+              {/* Twitter */}
+              <Box pb={5}>
+                <Heading
+                  textAlign="center"
+                  pt={6}
+                  pb={12}
+                  textDecor="underline"
+                  color="gray.900"
+                  textUnderlineOffset="14px"
+                  textDecorationColor="teal.400"
+                >
+                  Twitter
+                </Heading>
+                <Box
+                  bgColor="white"
+                  border="1px solid #E2E8F0"
+                  borderRadius="2xl"
+                  boxShadow="lg"
+                  p={7}
+                  minHeight="657.33px"
+                >
+                  <Timeline
+                    dataSource={{
+                      sourceType: "profile",
+                      screenName: "uec_imas",
+                    }}
+                    options={{ height: 600 }}
+                  />
+                </Box>
+              </Box>
+            </SimpleGrid>
+          </Stack>
+        </Box>
       </Container>
     </Box>
   );

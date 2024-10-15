@@ -22,7 +22,7 @@ export default function Contact() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="lg"
-          p="30px"
+          p={10}
         >
           <Heading py="5px">お問い合わせ</Heading>
           <Form />
@@ -32,7 +32,7 @@ export default function Contact() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="lg"
-          p="30px"
+          p={10}
         >
           <Heading py="5px">Q&A</Heading>
           <QA />

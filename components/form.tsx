@@ -69,7 +69,7 @@ export default function Form() {
   };
 
   return (
-    <Box>
+    <Box m={7}>
       {isSubmitSuccessful ? (
         <Text pt="8px">
           送信しました。
@@ -116,7 +116,7 @@ export default function Form() {
               )}
             </FormControl>
             <Center>
-              <Stack spacing={4}>
+              <Stack spacing={4} mt={5}>
                 <Box>
                   {!isOnLoad && (
                     <Box

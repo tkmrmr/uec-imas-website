@@ -17,7 +17,7 @@ export default function Footer() {
       as="footer"
       w="100%"
       mt="4rem"
-      p="15px"
+      px="30px"
       borderTop="1px solid"
       color="white"
       bgColor="gray.700"
@@ -71,10 +71,7 @@ export default function Footer() {
         // borderTop={"1px solid #eee"}
       >
         <Center>
-          <Text
-            lineHeight={{ base: "80px", md: "100px" }}
-            fontSize={{ base: "14px", md: "16px" }}
-          >
+          <Text lineHeight={{ base: "80px", md: "100px" }}>
             &copy; 2024 D@NPEN
           </Text>
         </Center>

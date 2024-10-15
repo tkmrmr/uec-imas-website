@@ -52,38 +52,40 @@ const QAList: QA[] = [
 
 export default function QA() {
   return (
-    <Stack>
-      {QAList.map((qa, index) => (
-        <Box key={index}>
-          <Dl pb="16px" pt="8px">
-            <Dt
-              _before={{
-                content: "'Q '",
-                marginRight: ".7em",
-                color: "blue.400",
-                fontWeight: "600",
-              }}
-              display="flex"
-              mb="0.3em"
-            >
-              {qa.question}
-            </Dt>
-            <Dd
-              _before={{
-                content: "'A '",
-                marginRight: ".7em",
-                color: "red.400",
-                fontWeight: "600",
-                px: "0.1em",
-              }}
-              display="flex"
-            >
-              {qa.answer}
-            </Dd>
-          </Dl>
-          <Divider />
-        </Box>
-      ))}
-    </Stack>
+    <Box p={7}>
+      <Stack>
+        {QAList.map((qa, index) => (
+          <Box key={index}>
+            <Dl pb="16px" pt="8px">
+              <Dt
+                _before={{
+                  content: "'Q '",
+                  marginRight: ".7em",
+                  color: "blue.400",
+                  fontWeight: "600",
+                }}
+                display="flex"
+                mb="0.3em"
+              >
+                {qa.question}
+              </Dt>
+              <Dd
+                _before={{
+                  content: "'A '",
+                  marginRight: ".7em",
+                  color: "red.400",
+                  fontWeight: "600",
+                  px: "0.1em",
+                }}
+                display="flex"
+              >
+                {qa.answer}
+              </Dd>
+            </Dl>
+            <Divider />
+          </Box>
+        ))}
+      </Stack>
+    </Box>
   );
 }

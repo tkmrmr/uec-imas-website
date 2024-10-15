@@ -57,7 +57,7 @@ export default function Blog() {
           (_, num) => (
             <Button
               key={num}
-              m="5px"
+              m="10px 5px 5px"
               p="5px 10px"
               bg={currentPage === num + 1 ? "teal.400" : "gray.300"}
               color="white"

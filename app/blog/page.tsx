@@ -4,24 +4,13 @@ import { useState } from "react";
 import {
   Box,
   Flex,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
   Spinner,
   Center,
-  Icon,
-  Heading,
-  Text,
   Button,
   SimpleGrid,
-  Divider,
 } from "@chakra-ui/react";
-import { EditIcon, ExternalLinkIcon } from "@chakra-ui/icons";
-// import { motion } from "framer-motion";
+import ArticleCard from "../../components/article-card";
 import useNote from "../../lib/use-note";
-
-// const Motion = motion.div;
 
 export default function Blog() {
   const { noteData, isLoading } = useNote();
@@ -52,59 +41,13 @@ export default function Blog() {
       {/* 記事表示部分 */}
       <SimpleGrid columns={[null, 1, 2]} mb="20px">
         {CurrentPosts?.map((post, index) => (
-          // <Motion
-          //   initial={{ y: 20, opacity: "0" }}
-          //   whileInView={{ y: 0, opacity: 1 }}
-          //   transition={{
-          //     duration: 0.4,
-          //   }}
-          //   viewport={{ once: true }}
-          // >
-          <Card
+          <ArticleCard
             key={index}
-            overflow="hidden"
-            variant="outline"
-            m="15px 12px"
-            transition="transform 0.2s ease"
+            post={post}
+            index={index}
             boxShadow="lg"
-            _hover={{ boxShadow: "xl" }}
-          >
-            <Box p="10px">
-              <CardHeader height="6.2em" mb="-20px">
-                <Heading fontSize="24px" noOfLines={2}>
-                  {post.title}
-                </Heading>
-              </CardHeader>
-              <CardBody>
-                <Text color="gray.400" height="4.5em" noOfLines={3}>
-                  {post.contentSnippet}
-                </Text>
-              </CardBody>
-            </Box>
-            <Divider />
-            <CardFooter>
-              <Flex alignItems="center" justify="space-between" w="100%">
-                <Flex color="gray.500">
-                  <Icon as={EditIcon} m="4px" />
-                  {post.date}
-                </Flex>
-                <Flex
-                  as="a"
-                  href={post.link}
-                  alignItems="center"
-                  transition="transform 0.2s ease"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    textDecoration: "underline",
-                  }}
-                >
-                  <Text>続きを読む</Text>
-                  <Icon as={ExternalLinkIcon} pl="2px" boxSize="20px" />
-                </Flex>
-              </Flex>
-            </CardFooter>
-          </Card>
-          // </Motion>
+            margin="15px 12px"
+          />
         ))}
       </SimpleGrid>
 

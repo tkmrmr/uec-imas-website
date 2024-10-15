@@ -15,7 +15,7 @@ export default function About() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="lg"
-          p="30px"
+          p={7}
         >
           <Heading>D@NPENについて</Heading>
           <Text whiteSpace="pre-line" mt="1.5rem">
@@ -34,7 +34,7 @@ export default function About() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="lg"
-          p="30px"
+          p={7}
         >
           <Heading>活動内容</Heading>
           <Dl mt="1.5rem">
@@ -73,7 +73,7 @@ export default function About() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="lg"
-          p="30px"
+          p={7}
         >
           <Heading>会費</Heading>
           <Text mt="1.5rem">

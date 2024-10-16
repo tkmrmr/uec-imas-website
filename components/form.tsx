@@ -10,12 +10,11 @@ import {
   Center,
   Stack,
   useBreakpointValue,
-  Spinner,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import ReCAPTCHA from "react-google-recaptcha";
+import { Turnstile, WidgetSize } from "@marsidev/react-turnstile";
 
 const contactSchema = z.object({
   name: z
@@ -27,49 +26,66 @@ const contactSchema = z.object({
     .string()
     .min(1, "1文字以上で入力してください。")
     .max(200, "200文字以下で入力してください。"),
-  token: z.string(),
 });
 
 type Contact = z.infer<typeof contactSchema>;
 
 export default function Form() {
-  const [isOnLoad, setisOnLoad] = useState(false);
-  const recaptchaSize = useBreakpointValue({
-    base: "compact",
-    sm: "normal",
-  });
+  const [isVerified, setIsVerified] = useState(false);
+  const turnstileSize: WidgetSize =
+    useBreakpointValue({
+      base: "compact",
+      sm: "normal",
+    }) || "normal";
 
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors, isValid, isSubmitSuccessful, isSubmitting },
   } = useForm<Contact>({
     mode: "onSubmit",
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: "", email: "", content: "", token: "" },
   });
 
-  const onSubmit = handleSubmit(async (data: Contact) => {
-    if (isValid) {
-      await fetch("/api/send-email", {
+  const onVerifySuccess = async (token: string) => {
+    try {
+      const res = await fetch("/api/verify", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify({ token }),
+        headers: {
+          "content-type": "application/json",
+        },
       });
+      if (!res.ok) {
+        throw new Error("Verification failed");
+      }
+      const verifyData = await res.json();
+      setIsVerified(verifyData.success);
+    } catch (error) {
+      console.error("Error verifying token:", error);
+      setIsVerified(false);
     }
-  });
-
-  const onChange = (value: string) => {
-    setValue("token", value);
-    console.log("Captcha value:", value);
   };
 
-  const OnLoad = () => {
-    setisOnLoad(true);
+  const onSubmit = async (data: Contact) => {
+    console.log(data);
+    console.log(isVerified);
+    if (isValid && isVerified) {
+      try {
+        await fetch("/api/send-email", {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
+      } catch (error) {
+        throw error;
+      }
+    } else {
+      throw errors;
+    }
   };
 
   return (
-    <Box m={7}>
+    <Box mx={{ base: 0, md: 7 }} my={{ base: 4, md: 7 }}>
       {isSubmitSuccessful ? (
         <Text pt="8px">
           送信しました。
@@ -77,7 +93,7 @@ export default function Form() {
           担当者が確認しますので、返信までしばらくお待ちください。
         </Text>
       ) : (
-        <form onSubmit={onSubmit} method="POST">
+        <form onSubmit={handleSubmit(onSubmit)} method="POST">
           <Stack spacing={4} pt="8px">
             <FormControl>
               <FormLabel htmlFor="name">お名前</FormLabel>
@@ -117,36 +133,11 @@ export default function Form() {
             </FormControl>
             <Center>
               <Stack spacing={4} mt={5}>
-                <Box>
-                  {!isOnLoad && (
-                    <Box
-                      textAlign="center"
-                      my={4}
-                      w={{ base: "164px", sm: "304px" }}
-                      h={{ base: "112px", sm: "46px" }}
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="center"
-                    >
-                      <Spinner
-                        size={{ base: "xl", sm: "lg" }}
-                        lineHeight="50%"
-                      />
-                    </Box>
-                  )}
-                  <Box
-                    style={{
-                      visibility: isOnLoad ? "visible" : "hidden",
-                    }}
-                  >
-                    <ReCAPTCHA
-                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                      onChange={onChange}
-                      size={recaptchaSize}
-                      asyncScriptOnLoad={OnLoad}
-                    />
-                  </Box>
-                </Box>
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+                  options={{ theme: "light", size: turnstileSize }}
+                  onSuccess={onVerifySuccess}
+                />
                 <Button
                   type="submit"
                   disabled={isSubmitting}

@@ -22,7 +22,7 @@ export default function ArticleCard({
   post: Post;
   index: number;
   boxShadow: string;
-  margin: string;
+  margin: { base?: string; sm?: string; md?: string };
 }) {
   return (
     <Card

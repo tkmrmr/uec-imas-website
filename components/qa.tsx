@@ -36,7 +36,7 @@ const QAList: QA[] = [
   {
     question: "他のサークルとの掛け持ちは可能ですか？",
     answer:
-      "可能です。部会の頻度がそこまで多くないので、掛け持ちしやすいと思われます。",
+      "可能です。部会の頻度がそこまで高くないので、掛け持ちしやすいと思われます。",
   },
   {
     question: "アイドルマスターに興味はあるのですが、ついていけるか不安です。",
@@ -52,7 +52,11 @@ const QAList: QA[] = [
 
 export default function QA() {
   return (
-    <Box p={7}>
+    <Box
+      mx={{ base: 0, md: 7 }}
+      my={{ base: 4, md: 7 }}
+      fontSize={{ base: "md", sm: "lg" }}
+    >
       <Stack>
         {QAList.map((qa, index) => (
           <Box key={index}>

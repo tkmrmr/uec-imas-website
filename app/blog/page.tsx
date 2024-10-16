@@ -37,7 +37,7 @@ export default function Blog() {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <Box m={{ base: "40px 10px", sm: "40px 30px" }}>
+    <Box m={{ base: "40px 0", md: "40px 30px" }}>
       {/* 記事表示部分 */}
       <SimpleGrid columns={[null, 1, 2]} mb="20px">
         {CurrentPosts?.map((post, index) => (
@@ -46,7 +46,7 @@ export default function Blog() {
             post={post}
             index={index}
             boxShadow="lg"
-            margin="15px 12px"
+            margin={{ base: "6px 0", sm: "12px 10px" }}
           />
         ))}
       </SimpleGrid>

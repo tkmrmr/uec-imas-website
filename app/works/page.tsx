@@ -3,7 +3,7 @@ import UnderConstruction from "../../components/under-construction";
 
 export default function Works() {
   return (
-    <Box m={{ base: "40px 10px", sm: "40px 30px" }}>
+    <Box m={{ base: "40px 0", md: "40px 30px" }}>
       <UnderConstruction />
     </Box>
   );

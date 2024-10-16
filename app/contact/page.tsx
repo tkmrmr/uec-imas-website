@@ -6,8 +6,12 @@ import Form from "../../components/form";
 
 export default function Contact() {
   return (
-    <Box m={{ base: "40px 10px", sm: "40px 30px" }}>
-      <Text pb="30px" px={10}>
+    <Box m={{ base: "40px 0", md: "40px 30px" }}>
+      <Text
+        pb="30px"
+        px={{ base: 8, sm: 10 }}
+        fontSize={{ base: "md", sm: "lg" }}
+      >
         D@NPENでは、通年で新規入会者を募集しています。
         <br />
         お問い合わせ・入会希望は以下のフォーム、もしくは
@@ -22,7 +26,7 @@ export default function Contact() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="lg"
-          p={10}
+          p={{ base: 8, sm: 10 }}
         >
           <Heading py="5px">お問い合わせ</Heading>
           <Form />
@@ -32,7 +36,7 @@ export default function Contact() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="lg"
-          p={10}
+          p={{ base: 8, sm: 10 }}
         >
           <Heading py="5px">Q&A</Heading>
           <QA />

@@ -25,7 +25,14 @@ export default function RootLayout({
     }
   }
   return (
-    <html lang="ja" style={{ scrollbarGutter: "stable" }}>
+    <html lang="ja">
+      <head>
+        <title>D@NPEN - 電気通信大学アイドルマスター研究会</title>
+        <meta
+          name="description"
+          content="電気通信大学准公認サークル「D@NPEN」公式サイトです。"
+        />
+      </head>
       <body className={notoSansJP.className}>
         <Providers>
           <Flex direction="column" minH="100vh" bgColor="gray.50">

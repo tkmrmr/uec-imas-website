@@ -19,7 +19,7 @@ export default function Home() {
   const { noteData, isLoading } = useNote();
   const NewPosts = noteData?.pageEmbedLinks?.slice(0, 2);
 
-  preload("/top.png", {
+  preload("/top2023.png", {
     as: "image",
   });
 
@@ -29,7 +29,7 @@ export default function Home() {
     <Box>
       {/* ヒーローセクション */}
       <Box
-        bgImage="/top.png"
+        bgImage="/top2023.png"
         bgSize="cover"
         bgPosition="center 0px"
         bgRepeat="no-repeat"
@@ -56,7 +56,7 @@ export default function Home() {
           position="relative"
           zIndex={2}
           textAlign={"center"}
-          bgGradient="linear(to-r, teal.50, teal.500)"
+          bgGradient="linear(to-r, teal.50, teal.400)"
           bgClip="text"
         >
           <Heading fontSize={{ base: "6xl", sm: "7xl", md: "8xl" }}>
@@ -69,8 +69,8 @@ export default function Home() {
       </Box>
 
       {/* メインコンテンツ */}
-      <Container maxW="1100px">
-        <Box m="40px 10px">
+      <Container maxW="1200px">
+        <Box m="40px 0px">
           <Stack spacing={5}>
             {/* お知らせ */}
             <Box pb={5}>
@@ -132,8 +132,8 @@ export default function Home() {
                           boxShadow="none"
                           margin={
                             index < NewPosts.length / 2
-                              ? " 0 0 6px "
-                              : "6px  0 "
+                              ? { base: " 0 0 6px " }
+                              : { base: "6px  0 " }
                           }
                         />
                       ))}

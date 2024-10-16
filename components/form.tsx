@@ -33,7 +33,7 @@ type Contact = z.infer<typeof contactSchema>;
 export default function Form() {
   const [isVerified, setIsVerified] = useState(false);
   const turnstileSize: WidgetSize =
-    useBreakpointValue({
+    useBreakpointValue<WidgetSize>({
       base: "compact",
       sm: "normal",
     }) || "normal";
@@ -47,7 +47,7 @@ export default function Form() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onVerifySuccess = async (token: string) => {
+  const onSuccess = async (token: string) => {
     try {
       const res = await fetch("/api/verify", {
         method: "POST",
@@ -132,11 +132,15 @@ export default function Form() {
               )}
             </FormControl>
             <Center>
-              <Stack spacing={4} mt={5}>
+              <Stack
+                spacing={5}
+                mt={{ base: 1, sm: "3" }}
+                maxH={{ base: "200px", sm: "125px" }}
+              >
                 <Turnstile
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
                   options={{ theme: "light", size: turnstileSize }}
-                  onSuccess={onVerifySuccess}
+                  onSuccess={onSuccess}
                 />
                 <Button
                   type="submit"
@@ -144,6 +148,8 @@ export default function Form() {
                   isLoading={isSubmitting}
                   loadingText="送信中"
                   colorScheme="teal"
+                  w={{ base: "150px", sm: "300px" }}
+                  minH="40px"
                 >
                   送信
                 </Button>

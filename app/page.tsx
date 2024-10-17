@@ -47,7 +47,7 @@ export default function Home() {
           left: 0,
           width: "100%",
           height: "100%",
-          bg: "rgba(0, 0, 0, 0.4)",
+          bg: "rgba(0, 0, 0, 0.5)",
           zIndex: 1,
         }}
         filter="brightness(90%)"
@@ -62,7 +62,7 @@ export default function Home() {
           <Heading fontSize={{ base: "7xl", sm: "8xl", lg: "9xl" }}>
             D@NPEN
           </Heading>
-          <Heading fontSize={{ base: "1xl", sm: "2xl", lg: "3xl" }}>
+          <Heading fontSize={{ base: "1xl", lg: "2xl" }}>
             電気通信大学アイドルマスター研究会
           </Heading>
         </Box>

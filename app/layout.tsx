@@ -30,7 +30,7 @@ export default function RootLayout({
         <title>D@NPEN - 電気通信大学アイドルマスター研究会</title>
         <meta
           name="description"
-          content="電気通信大学準公認サークル「D@NPEN」公式サイトです。"
+          content="電気通信大学学友会公認サークル「D@NPEN」公式サイトです。"
         />
       </head>
       <body className={notoSansJP.className}>

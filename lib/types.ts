@@ -14,3 +14,11 @@ export type Link = {
   href: string;
   text: string;
 };
+
+export type Bulletin = {
+  id: number;
+  title: string;
+  image: string;
+  publishedYear: string;
+  color: string;
+};

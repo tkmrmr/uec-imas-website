@@ -11,7 +11,7 @@ import {
   Spinner,
   Center,
 } from "@chakra-ui/react";
-import { Timeline, eagerLoadTwitterLibrary } from "react-twitter-widgets";
+import { Timeline } from "react-twitter-widgets";
 import ArticleCard from "../components/article-card";
 import useNote from "../lib/use-note";
 
@@ -22,8 +22,6 @@ export default function Home() {
   preload("/top2023.png", {
     as: "image",
   });
-
-  eagerLoadTwitterLibrary();
 
   return (
     <Box>

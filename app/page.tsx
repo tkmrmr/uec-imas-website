@@ -45,7 +45,7 @@ export default function Home() {
           left: 0,
           width: "100%",
           height: "100%",
-          bg: "rgba(0, 0, 0, 0.5)",
+          bg: "rgba(0, 0, 0, 0.4)",
           zIndex: 1,
         }}
         filter="brightness(90%)"
@@ -87,7 +87,7 @@ export default function Home() {
                 bgColor="white"
                 border="1px solid #E2E8F0"
                 borderRadius="2xl"
-                boxShadow="lg"
+                boxShadow="md"
                 p={7}
               >
                 <Text textAlign="center" fontSize="lg">
@@ -113,7 +113,7 @@ export default function Home() {
                   bgColor="white"
                   border="1px solid #E2E8F0"
                   borderRadius="2xl"
-                  boxShadow="lg"
+                  boxShadow="md"
                   p={7}
                 >
                   {isLoading ? (
@@ -156,7 +156,7 @@ export default function Home() {
                   bgColor="white"
                   border="1px solid #E2E8F0"
                   borderRadius="2xl"
-                  boxShadow="lg"
+                  boxShadow="md"
                   p={7}
                   minHeight="657.33px"
                 >

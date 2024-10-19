@@ -45,7 +45,7 @@ export default function Blog() {
             key={index}
             post={post}
             index={index}
-            boxShadow="lg"
+            boxShadow="md"
             margin={{ base: "6px 0", sm: "12px 10px" }}
           />
         ))}

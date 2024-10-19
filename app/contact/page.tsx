@@ -25,7 +25,7 @@ export default function Contact() {
           bgColor="white"
           border="1px solid #E2E8F0"
           borderRadius="2xl"
-          boxShadow="lg"
+          boxShadow="md"
           p={{ base: 8, sm: 10 }}
         >
           <Heading py="5px">お問い合わせ</Heading>
@@ -35,7 +35,7 @@ export default function Contact() {
           bgColor="white"
           border="1px solid #E2E8F0"
           borderRadius="2xl"
-          boxShadow="lg"
+          boxShadow="md"
           p={{ base: 8, sm: 10 }}
         >
           <Heading py="5px">Q&A</Heading>

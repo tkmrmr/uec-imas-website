@@ -12,7 +12,11 @@ import { Bulletin } from "../lib/types";
 
 export default function BulletinCard({ bulletin }: { bulletin: Bulletin }) {
   return (
-    <Card m={{ base: "6px 0", sm: "12px 10px" }} variant="outline">
+    <Card
+      m={{ base: "6px 0", sm: "12px 10px" }}
+      variant="outline"
+      boxShadow="md"
+    >
       <CardBody>
         <Image src={bulletin.image} alt="" />
       </CardBody>

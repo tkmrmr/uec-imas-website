@@ -32,7 +32,7 @@ export default function ArticleCard({
       m={margin}
       transition="transform 0.2s ease"
       boxShadow={boxShadow}
-      _hover={{ boxShadow: "xl" }}
+      _hover={{ boxShadow: "lg" }}
     >
       <Box p="10px">
         <CardHeader height="6.2em" mb="-20px">

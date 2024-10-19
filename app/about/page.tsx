@@ -8,7 +8,7 @@ export default function About() {
           bgColor="white"
           border="1px solid #E2E8F0"
           borderRadius="2xl"
-          boxShadow="lg"
+          boxShadow="md"
           p={{ base: 8, sm: 10 }}
         >
           <Heading>D@NPENについて</Heading>
@@ -33,7 +33,7 @@ export default function About() {
           bgColor="white"
           border="1px solid #E2E8F0"
           borderRadius="2xl"
-          boxShadow="lg"
+          boxShadow="md"
           p={{ base: 8, sm: 10 }}
         >
           <Heading>活動内容</Heading>
@@ -93,7 +93,7 @@ export default function About() {
           bgColor="white"
           border="1px solid #E2E8F0"
           borderRadius="2xl"
-          boxShadow="lg"
+          boxShadow="md"
           p={{ base: 8, sm: 10 }}
         >
           <Heading>会費</Heading>

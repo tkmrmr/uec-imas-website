@@ -11,9 +11,9 @@ import {
   Spinner,
   Center,
 } from "@chakra-ui/react";
-import { Timeline } from "react-twitter-widgets";
 import ArticleCard from "../components/article-card";
 import useNote from "../lib/use-note";
+import TwitterTimeline from "@/components/twitter-timeline";
 
 export default function Home() {
   const { noteData, isLoading } = useNote();
@@ -160,13 +160,7 @@ export default function Home() {
                   p={7}
                   minHeight="657.33px"
                 >
-                  <Timeline
-                    dataSource={{
-                      sourceType: "profile",
-                      screenName: "uec_imas",
-                    }}
-                    options={{ height: 600 }}
-                  />
+                  <TwitterTimeline />
                 </Box>
               </Box>
             </SimpleGrid>

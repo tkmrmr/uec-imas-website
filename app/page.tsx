@@ -87,7 +87,7 @@ export default function Home() {
                 pb={12}
                 textDecor="underline"
                 color="gray.900"
-                textUnderlineOffset="14px"
+                textUnderlineOffset="10px"
                 textDecorationColor="teal.400"
               >
                 お知らせ
@@ -113,7 +113,7 @@ export default function Home() {
                   pb={12}
                   textDecor="underline"
                   color="gray.900"
-                  textUnderlineOffset="14px"
+                  textUnderlineOffset="10px"
                   textDecorationColor="teal.400"
                 >
                   新着記事
@@ -162,7 +162,7 @@ export default function Home() {
                   pb={12}
                   textDecor="underline"
                   color="gray.900"
-                  textUnderlineOffset="14px"
+                  textUnderlineOffset="10px"
                   textDecorationColor="teal.400"
                 >
                   Twitter

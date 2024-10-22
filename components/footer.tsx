@@ -23,10 +23,15 @@ export default function Footer() {
       bgColor="gray.700"
     >
       <Box h={{ base: "400px", sm: "350px" }} py="12px">
-        <Stack align="center" gap={14} justify="center" h="100%">
-          <Flex gap={10} wrap="wrap" rowGap={5} justify="center">
+        <Stack gap={14} h="100%" alignItems="center" justifyContent="center">
+          <Flex
+            gap={{ base: 10, md: 16 }}
+            wrap="wrap"
+            rowGap={5}
+            justifyContent="center"
+          >
             <Link href="/" _hover={{ textDecor: "none", color: "gray.400" }}>
-              ホーム
+              トップ
             </Link>
             <Link
               href="/about"
@@ -38,7 +43,7 @@ export default function Footer() {
               href="/blog"
               _hover={{ textDecor: "none", color: "gray.400" }}
             >
-              ブログ&emsp;
+              ブログ
             </Link>
             <Link
               href=""
@@ -49,7 +54,7 @@ export default function Footer() {
               href="/works"
               _hover={{ textDecor: "none", color: "gray.400" }}
             >
-              制作物&emsp;
+              制作物
             </Link>
             <Link
               href="/contact"
@@ -63,11 +68,11 @@ export default function Footer() {
             _hover={{ textDecor: "none", color: "gray.400" }}
           >
             <Flex>
-              <Text>旧サイト</Text>{" "}
+              <Text>旧サイト</Text>
               <Icon as={ExternalLinkIcon} pl="2px" boxSize="20px" mt="2px" />
             </Flex>
           </Link>
-          <Flex gap={10} justify="center">
+          <Flex gap={10}>
             <Link
               href="https://twitter.com/uec_imas"
               _hover={{ color: "gray.400" }}
@@ -81,14 +86,9 @@ export default function Footer() {
         </Stack>
       </Box>
       <Divider colorScheme="gray" />
-      <Box
-        h={{ base: "80px", md: "110px" }}
-        // borderTop={"1px solid #eee"}
-      >
+      <Box h="120px">
         <Center>
-          <Text lineHeight={{ base: "80px", md: "100px" }}>
-            &copy; 2024 D@NPEN
-          </Text>
+          <Text lineHeight="120px">&copy; 2024 D@NPEN</Text>
         </Center>
       </Box>
     </Box>

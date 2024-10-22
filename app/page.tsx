@@ -120,7 +120,7 @@ export default function Home() {
                     <Center h="600px">
                       <Spinner size="xl" />
                     </Center>
-                  ) : (
+                  ) : (NewPosts ?? []).length > 0 ? (
                     <SimpleGrid h="600px">
                       {NewPosts?.map((post, index) => (
                         <ArticleCard
@@ -136,6 +136,12 @@ export default function Home() {
                         />
                       ))}
                     </SimpleGrid>
+                  ) : (
+                    <Box h="600px">
+                      <Text textAlign="center" fontSize="lg" lineHeight="600px">
+                        記事はまだありません。
+                      </Text>
+                    </Box>
                   )}
                 </Box>
               </Box>

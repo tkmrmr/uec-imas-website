@@ -8,6 +8,7 @@ import {
   Center,
   Button,
   SimpleGrid,
+  Text,
 } from "@chakra-ui/react";
 import ArticleCard from "../../components/article-card";
 import useNote from "../../lib/use-note";
@@ -22,6 +23,16 @@ export default function Blog() {
       <Box>
         <Center height="50vh">
           <Spinner size="xl" />
+        </Center>
+      </Box>
+    );
+  }
+
+  if ((noteData?.pageEmbedLinks ?? []).length === 0) {
+    return (
+      <Box>
+        <Center height="50vh">
+          <Text fontSize="xl">記事はまだありません。</Text>
         </Center>
       </Box>
     );

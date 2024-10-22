@@ -20,7 +20,7 @@ export default function Header({ pathname }: { pathname: string }) {
     setScrollY(initialScrollY);
 
     if (initialScrollY > 0) {
-      setColor("black");
+      setColor("gray.900");
       setBgColor("whiteAlpha.800");
       setBoxShadow("md");
       setLogoIsFiltered(false);

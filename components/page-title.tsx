@@ -13,7 +13,6 @@ export default function PageHeader({ pathname }: { pathname: string }) {
           fontSize={{ base: "36px", sm: "48px" }}
           textTransform="uppercase"
           textDecor="underline"
-          color="gray.900"
           textUnderlineOffset="12px"
           textDecorationColor="teal.400"
           textDecorationThickness="5px"

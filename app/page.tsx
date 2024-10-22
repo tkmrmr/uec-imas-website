@@ -59,17 +59,19 @@ export default function Home() {
           zIndex: 1,
         }}
       >
-        <Box
-          position="relative"
-          zIndex={2}
-          textAlign={"center"}
-          bgGradient="linear(to-r, teal.50, teal.400)"
-          bgClip="text"
-        >
-          <Heading fontSize={{ base: "7xl", sm: "8xl", lg: "9xl" }}>
+        <Box position="relative" zIndex={2} textAlign={"center"}>
+          <Heading
+            fontSize={{ base: "7xl", sm: "8xl", lg: "9xl" }}
+            bgGradient="linear(to-r, teal.50, teal.400)"
+            bgClip="text"
+          >
             D@NPEN
           </Heading>
-          <Heading fontSize={{ base: "1xl", lg: "2xl" }}>
+          <Heading
+            fontSize={{ base: "1xl", lg: "2xl" }}
+            bgGradient="linear(to-r, teal.50, teal.400)"
+            bgClip="text"
+          >
             電気通信大学アイドルマスター研究会
           </Heading>
         </Box>
@@ -86,7 +88,6 @@ export default function Home() {
                 pt={6}
                 pb={12}
                 textDecor="underline"
-                color="gray.900"
                 textUnderlineOffset="10px"
                 textDecorationColor="teal.400"
               >
@@ -112,7 +113,6 @@ export default function Home() {
                   pt={6}
                   pb={12}
                   textDecor="underline"
-                  color="gray.900"
                   textUnderlineOffset="10px"
                   textDecorationColor="teal.400"
                 >
@@ -161,7 +161,6 @@ export default function Home() {
                   pt={6}
                   pb={12}
                   textDecor="underline"
-                  color="gray.900"
                   textUnderlineOffset="10px"
                   textDecorationColor="teal.400"
                 >

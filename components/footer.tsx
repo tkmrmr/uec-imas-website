@@ -68,7 +68,7 @@ export default function Footer() {
             _hover={{ textDecor: "none", color: "gray.400" }}
           >
             <Flex>
-              <Text>旧サイト</Text>
+              旧サイト
               <Icon as={ExternalLinkIcon} pl="2px" boxSize="20px" mt="2px" />
             </Flex>
           </Link>
@@ -88,7 +88,9 @@ export default function Footer() {
       <Divider colorScheme="gray" />
       <Box h="120px">
         <Center>
-          <Text lineHeight="120px">&copy; 2024 D@NPEN</Text>
+          <Text color="white" lineHeight="120px">
+            &copy; 2024 D@NPEN
+          </Text>
         </Center>
       </Box>
     </Box>

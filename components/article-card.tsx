@@ -56,6 +56,7 @@ export default function ArticleCard({
           <Flex
             as="a"
             href={post.link}
+            color="gray.700"
             alignItems="center"
             transition="transform 0.2s ease"
             _hover={{
@@ -63,7 +64,7 @@ export default function ArticleCard({
               textDecoration: "underline",
             }}
           >
-            <Text>続きを読む</Text>
+            続きを読む
             <Icon as={ExternalLinkIcon} pl="2px" boxSize="20px" />
           </Flex>
         </Flex>

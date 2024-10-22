@@ -18,7 +18,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { links } from "../lib/links";
 
 export default function Navi({
-  color = "black",
+  color = "gray.900",
   pathname,
 }: {
   color?: string;

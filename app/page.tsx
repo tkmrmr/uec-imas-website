@@ -17,7 +17,7 @@ import TwitterTimeline from "@/components/twitter-timeline";
 
 export default function Home() {
   const { noteData, isLoading } = useNote();
-  const NewPosts = noteData?.pageEmbedLinks?.slice(0, 2);
+  const newPosts = noteData?.pageEmbedLinks?.slice(0, 2);
 
   preload("/top2023.png", {
     as: "image",
@@ -55,7 +55,7 @@ export default function Home() {
           left: 0,
           width: "100%",
           height: "100%",
-          bg: "rgba(0, 0, 0, 0.4)",
+          bg: "rgba(0, 0, 0, 0.5)",
           zIndex: 1,
         }}
       >
@@ -98,9 +98,14 @@ export default function Home() {
                 border="1px solid #E2E8F0"
                 borderRadius="2xl"
                 boxShadow="md"
-                p={7}
+                p={{ base: 4, sm: 6 }}
+                minH="5em"
               >
-                <Text textAlign="center" fontSize="lg">
+                <Text
+                  textAlign="center"
+                  fontSize={{ base: "md", sm: "lg" }}
+                  lineHeight="5em"
+                >
                   特にお知らせはありません。
                 </Text>
               </Box>
@@ -123,31 +128,42 @@ export default function Home() {
                   border="1px solid #E2E8F0"
                   borderRadius="2xl"
                   boxShadow="md"
-                  p={7}
+                  p={{ base: 4, sm: 6 }}
                 >
                   {isLoading ? (
-                    <Center h="600px">
+                    <Center minH={{ base: "294px", md: "600px" }}>
                       <Spinner size="xl" />
                     </Center>
-                  ) : (NewPosts ?? []).length > 0 ? (
-                    <SimpleGrid h="600px">
-                      {NewPosts?.map((post, index) => (
+                  ) : (newPosts ?? []).length > 0 ? (
+                    <SimpleGrid minH={{ base: "294px", md: "600px" }}>
+                      {newPosts?.map((post, index) => (
                         <ArticleCard
                           key={index}
                           post={post}
                           index={index}
                           boxShadow="none"
                           margin={
-                            index < NewPosts.length / 2
-                              ? { base: " 0 0 6px " }
-                              : { base: "6px  0 " }
+                            index % 2
+                              ? { base: "6px 0 0 " }
+                              : { base: " 0 0 6px " }
                           }
                         />
                       ))}
+                      {newPosts?.length === 1 && (
+                        <Box
+                          h={{ md: "278.2px" }}
+                          p={{ md: "1px" }}
+                          mt={{ md: "6px" }}
+                        ></Box>
+                      )}
                     </SimpleGrid>
                   ) : (
-                    <Box h="600px">
-                      <Text textAlign="center" fontSize="lg" lineHeight="600px">
+                    <Box h={{ base: "294px", md: "600px" }}>
+                      <Text
+                        textAlign="center"
+                        fontSize="lg"
+                        lineHeight={{ base: "294px", md: "600px" }}
+                      >
                         記事はまだありません。
                       </Text>
                     </Box>
@@ -171,8 +187,7 @@ export default function Home() {
                   border="1px solid #E2E8F0"
                   borderRadius="2xl"
                   boxShadow="md"
-                  p={7}
-                  minHeight="657.33px"
+                  p={{ base: 4, sm: 6 }}
                 >
                   <TwitterTimeline />
                 </Box>

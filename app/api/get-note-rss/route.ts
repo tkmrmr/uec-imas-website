@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import type { NoteData } from "../../../lib/types";
 
 const getNoteEmbedLink = async (): Promise<NoteData> => {
-  const rssFeed = await new Parser().parseURL("https://note.com/amatkmr/rss");
+  const rssFeed = await new Parser().parseURL("https://note.com/hogehoge/rss");
   return {
     pageEmbedLinks: rssFeed.items.map((item) => ({
       title: item.title ?? "",

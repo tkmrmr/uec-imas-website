@@ -6,18 +6,24 @@ import {
   UnorderedList,
   IconButton,
   Drawer,
+  DrawerHeader,
   DrawerBody,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   Button,
   useDisclosure,
-  Divider,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { links } from "../lib/links";
 
-export default function Navi({ color = "black" }: { color?: string }) {
+export default function Navi({
+  color = "black",
+  pathname,
+}: {
+  color?: string;
+  pathname: string;
+}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -43,8 +49,10 @@ export default function Navi({ color = "black" }: { color?: string }) {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            {/* <DrawerHeader>MENU</DrawerHeader> */}
-            <DrawerBody p="40px 20px">
+            <DrawerHeader p="30px 0 20px" textAlign="center" color="gray.800">
+              Menu
+            </DrawerHeader>
+            <DrawerBody>
               {links.map((link, index) => (
                 <Box key={index}>
                   <Button
@@ -53,13 +61,19 @@ export default function Navi({ color = "black" }: { color?: string }) {
                     // borderBottom="1px solid"
                     w="100%"
                     onClick={onClose}
-                    borderRadius="none"
-                    bgColor="white"
+                    color={link.href === pathname ? "teal.400" : "gray.700"}
+                    bgColor={link.href === pathname ? "teal.50" : "white"}
                     m="10px 0"
+                    justifyContent="flex-start"
+                    fontSize="lg"
+                    fontWeight="normal"
+                    _hover={{ color: "teal.400", bgColor: "teal.50" }}
+                    _active={{
+                      WebkitTapHighlightColor: "transparent",
+                    }}
                   >
                     {link.text}
                   </Button>
-                  <Divider borderColor="black" />
                 </Box>
               ))}
             </DrawerBody>

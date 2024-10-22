@@ -42,12 +42,12 @@ export default function Header({ pathname }: { pathname: string }) {
       {pathname === "/" ? (
         <HeaderWrapper bgColor={bgColor} boxShadow={boxShadow}>
           <Logo isFiltered={logoIsFiltered} />
-          <Navi color={color} />
+          <Navi color={color} pathname={pathname} />
         </HeaderWrapper>
       ) : (
         <HeaderWrapper bgColor="whiteAlpha.800" boxShadow="md">
           <Logo />
-          <Navi />
+          <Navi pathname={pathname} />
         </HeaderWrapper>
       )}
     </>

@@ -1,95 +1,201 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { preload } from "react-dom";
+import {
+  Box,
+  Heading,
+  Container,
+  Stack,
+  Text,
+  SimpleGrid,
+  Spinner,
+  Center,
+} from "@chakra-ui/react";
+import ArticleCard from "../components/article-card";
+import useNote from "../lib/use-note";
+import TwitterTimeline from "@/components/twitter-timeline";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { noteData, isLoading } = useNote();
+  const newPosts = noteData?.pageEmbedLinks?.slice(0, 2);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  preload("/top2023.png", {
+    as: "image",
+  });
+
+  return (
+    <Box>
+      {/* ヒーローセクション */}
+      <Box
+        position="relative"
+        height="100vh"
+        width="100%"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="black"
+        _before={{
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: 'url("/top2023.png")',
+          backgroundSize: "cover",
+          backgroundPosition: { base: "52.5%", sm: "center 0px" },
+          backgroundRepeat: "no-repeat",
+          filter: "brightness(90%)",
+          zIndex: 0,
+        }}
+        _after={{
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          bg: "rgba(0, 0, 0, 0.5)",
+          zIndex: 1,
+        }}
+      >
+        <Box position="relative" zIndex={2} textAlign={"center"}>
+          <Heading
+            fontSize={{ base: "7xl", sm: "8xl", lg: "9xl" }}
+            bgGradient="linear(to-r, teal.50, teal.400)"
+            bgClip="text"
           >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+            D@NPEN
+          </Heading>
+          <Heading
+            fontSize={{ base: "1xl", lg: "2xl" }}
+            bgGradient="linear(to-r, teal.50, teal.400)"
+            bgClip="text"
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            電気通信大学アイドルマスター研究会
+          </Heading>
+        </Box>
+      </Box>
+
+      {/* メインコンテンツ */}
+      <Container maxW="1200px">
+        <Box m="40px 0px">
+          <Stack spacing={5}>
+            {/* お知らせ */}
+            <Box pb={5}>
+              <Heading
+                textAlign="center"
+                pt={6}
+                pb={12}
+                textDecor="underline"
+                textUnderlineOffset="10px"
+                textDecorationColor="teal.400"
+              >
+                お知らせ
+              </Heading>
+              <Box
+                bgColor="white"
+                border="1px solid #E2E8F0"
+                borderRadius="2xl"
+                boxShadow="md"
+                p={{ base: 4, sm: 6 }}
+                minH="5em"
+              >
+                <Text
+                  textAlign="center"
+                  fontSize={{ base: "md", sm: "lg" }}
+                  lineHeight="5em"
+                >
+                  特にお知らせはありません。
+                </Text>
+              </Box>
+            </Box>
+            {/* note */}
+            <SimpleGrid columns={[null, 1, 2]} gap={{ base: 0, md: 6 }}>
+              <Box pb={5}>
+                <Heading
+                  textAlign="center"
+                  pt={6}
+                  pb={12}
+                  textDecor="underline"
+                  textUnderlineOffset="10px"
+                  textDecorationColor="teal.400"
+                >
+                  新着記事
+                </Heading>
+                <Box
+                  bgColor="white"
+                  border="1px solid #E2E8F0"
+                  borderRadius="2xl"
+                  boxShadow="md"
+                  p={{ base: 4, sm: 6 }}
+                >
+                  {isLoading ? (
+                    <Center minH={{ base: "294px", md: "600px" }}>
+                      <Spinner size="xl" />
+                    </Center>
+                  ) : (newPosts ?? []).length > 0 ? (
+                    <SimpleGrid minH={{ base: "294px", md: "600px" }}>
+                      {newPosts?.map((post, index) => (
+                        <ArticleCard
+                          key={index}
+                          post={post}
+                          index={index}
+                          boxShadow="none"
+                          margin={
+                            index % 2
+                              ? { base: "6px 0 0 " }
+                              : { base: " 0 0 6px " }
+                          }
+                        />
+                      ))}
+                      {newPosts?.length === 1 && (
+                        <Box
+                          h={{ md: "278.2px" }}
+                          p={{ md: "1px" }}
+                          mt={{ md: "6px" }}
+                        ></Box>
+                      )}
+                    </SimpleGrid>
+                  ) : (
+                    <Box h={{ base: "294px", md: "600px" }}>
+                      <Text
+                        textAlign="center"
+                        fontSize="lg"
+                        lineHeight={{ base: "294px", md: "600px" }}
+                      >
+                        記事はまだありません。
+                      </Text>
+                    </Box>
+                  )}
+                </Box>
+              </Box>
+              {/* Twitter */}
+              <Box pb={5}>
+                <Heading
+                  textAlign="center"
+                  pt={6}
+                  pb={12}
+                  textDecor="underline"
+                  textUnderlineOffset="10px"
+                  textDecorationColor="teal.400"
+                >
+                  Twitter
+                </Heading>
+                <Box
+                  bgColor="white"
+                  border="1px solid #E2E8F0"
+                  borderRadius="2xl"
+                  boxShadow="md"
+                  p={{ base: 4, sm: 6 }}
+                >
+                  <TwitterTimeline />
+                </Box>
+              </Box>
+            </SimpleGrid>
+          </Stack>
+        </Box>
+      </Container>
+    </Box>
   );
 }

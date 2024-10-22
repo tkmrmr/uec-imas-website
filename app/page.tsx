@@ -43,9 +43,9 @@ export default function Home() {
           height: "100%",
           backgroundImage: 'url("/top2023.png")',
           backgroundSize: "cover",
-          backgroundPosition: "center 0px",
+          backgroundPosition: { base: "52.5%", sm: "center 0px" },
           backgroundRepeat: "no-repeat",
-          filter: "brightness(90%)", // ここでbrightnessを適用
+          filter: "brightness(90%)",
           zIndex: 0,
         }}
         _after={{

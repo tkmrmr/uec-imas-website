@@ -9,11 +9,10 @@ export default function Logo() {
     >
       <Link as={NextLink} href="/">
         <Image
-          src="/icon.jpg"
+          src="/logo.png"
           alt="icon"
           maxWidth="60px"
           w={{ base: "40px", md: "60px" }}
-          borderRadius="full"
         />
       </Link>
     </Box>

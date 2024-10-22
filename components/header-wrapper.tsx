@@ -13,7 +13,7 @@ export default function HeaderWrapper({
     <Box
       as="header"
       bg={bgColor}
-      backdropFilter="blur(4px)"
+      backdropFilter="blur(5px)"
       h={{ base: "70px", sm: "100px" }}
       w="100%"
       position="fixed"

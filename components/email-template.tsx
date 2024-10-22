@@ -1,10 +1,12 @@
 export const EmailTemplate = ({
   name,
   email,
+  category,
   content,
 }: {
   name: string;
   email: string;
+  category: "ご入会希望" | "サークルについて" | "このサイトについて" | "その他";
   content: string;
 }) => {
   return (
@@ -47,6 +49,18 @@ export const EmailTemplate = ({
               メールアドレス
             </p>
             <p style={{ marginTop: "10px" }}>{email}</p>
+          </div>
+          <div>
+            <p
+              style={{
+                fontWeight: "bold",
+                borderBottom: "1px solid #ccc",
+                fontSize: "18px",
+              }}
+            >
+              お問い合わせ内容
+            </p>
+            <p style={{ marginTop: "10px" }}>{category}</p>
           </div>
           <div>
             <p

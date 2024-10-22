@@ -5,14 +5,14 @@ import { EmailTemplate } from "../../../components/email-template";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  const { name, email, content } = await req.json();
+  const { name, email, category, content } = await req.json();
 
   try {
     const { data, error } = await resend.emails.send({
       from: "Resend <onboarding@resend.dev>",
-      to: "dach1024@yahoo.co.jp",
+      to: process.env.EMAIL || "",
       subject: "【D@NPEN】お問い合わせがありました",
-      react: EmailTemplate({ name, email, content }),
+      react: EmailTemplate({ name, email, category, content }),
     });
     if (error) {
       return NextResponse.json({ error: "メールの送信に失敗しました" });

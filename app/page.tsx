@@ -27,18 +27,28 @@ export default function Home() {
     <Box>
       {/* ヒーローセクション */}
       <Box
-        bgImage="/top2023.png"
-        bgSize="cover"
-        bgPosition="center 0px"
-        bgRepeat="no-repeat"
-        color="black"
+        position="relative"
         height="100vh"
         width="100%"
-        position="relative"
         display="flex"
         alignItems="center"
         justifyContent="center"
+        color="black"
         _before={{
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: 'url("/top2023.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center 0px",
+          backgroundRepeat: "no-repeat",
+          filter: "brightness(90%)", // ここでbrightnessを適用
+          zIndex: 0,
+        }}
+        _after={{
           content: '""',
           position: "absolute",
           top: 0,
@@ -48,7 +58,6 @@ export default function Home() {
           bg: "rgba(0, 0, 0, 0.4)",
           zIndex: 1,
         }}
-        filter="brightness(90%)"
       >
         <Box
           position="relative"

@@ -8,7 +8,7 @@ export default function Header({ pathname }: { pathname: string }) {
   const [color, setColor] = useState("white");
   const [bgColor, setBgColor] = useState("rgba(0, 0, 0, 0)");
   const [boxShadow, setBoxShadow] = useState("none");
-  const [, setScrollY] = useStorage("howScroll", "0");
+  const [, setScrollY] = useStorage("howScroll", 0);
   const [logoIsFiltered, setLogoIsFiltered] = useState(true);
 
   const handleScroll = useCallback(() => {

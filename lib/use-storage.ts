@@ -1,21 +1,18 @@
 import { useEffect, useState } from "react";
 
-export default function useStorge(key: string, initValue: string | number) {
-  const [value, setValue] = useState(initValue);
-  const onChange = (newValue: string | number) => {
+export default function useStorge(key: string, initValue: number) {
+  const [value, setValue] = useState<number>(initValue);
+
+  const onChange = (newValue: number) => {
     setValue(newValue);
-    if (typeof newValue === "number") {
-      localStorage.setItem(key, newValue.toString());
-    } else {
-      localStorage.setItem(key, newValue);
-    }
+    localStorage.setItem(key, JSON.stringify(newValue));
   };
 
   useEffect(() => {
     const data = localStorage.getItem(key);
     if (data) {
-      setValue(data);
+      setValue(JSON.parse(data) as number);
     }
   }, [key]);
-  return [value, onChange];
+  return [value, onChange] as [number, (value: number) => void];
 }

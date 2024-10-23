@@ -43,7 +43,7 @@ export default function Home() {
           height: "100%",
           backgroundImage: 'url("/top2023.png")',
           backgroundSize: "cover",
-          backgroundPosition: { base: "52.5%", sm: "center 0px" },
+          backgroundPosition: { base: "52.5%", md: "center 0px" },
           backgroundRepeat: "no-repeat",
           filter: "brightness(90%)",
           zIndex: 0,

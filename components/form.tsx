@@ -24,7 +24,7 @@ const contactSchema = z.object({
     .max(20, "20文字以下で入力してください。"),
   email: z.string().email("メールアドレスの形式で入力してください。"),
   category: z.enum(
-    ["ご入会希望", "サークルについて", "このサイトについて", "その他"],
+    ["入会希望", "サークルについて", "このサイトについて", "その他"],
     { errorMap: () => ({ message: "お問い合わせ種別を選択してください。" }) }
   ),
   content: z
@@ -136,7 +136,7 @@ export default function Form() {
                 placeholder="選択"
                 {...register("category")}
               >
-                <option>ご入会希望</option>
+                <option>入会希望</option>
                 <option>サークルについて</option>
                 <option>このサイトについて</option>
                 <option>その他</option>

@@ -9,7 +9,7 @@ export default function Logo({ isFiltered = false }: { isFiltered?: boolean }) {
     >
       <Link as={NextLink} href="/">
         <Image
-          src="/logo.png"
+          src="/logo.webp"
           alt="icon"
           maxWidth="60px"
           w={{ base: "40px", md: "60px" }}

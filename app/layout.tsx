@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import { Noto_Sans_JP } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { Container, Flex } from "@chakra-ui/react";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import PageHeader from "../components/page-title";
@@ -69,9 +70,13 @@ export default function RootLayout({
             {pathname !== "/" ? (
               <Container maxW="1100px" flex="1">
                 {children}
+                <Analytics />
               </Container>
             ) : (
-              children
+              <>
+                {children}
+                <Analytics />
+              </>
             )}
             <Footer />
           </Flex>

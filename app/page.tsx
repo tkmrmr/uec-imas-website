@@ -92,6 +92,7 @@ export default function Home() {
                 textDecor="underline"
                 textUnderlineOffset="10px"
                 textDecorationColor="teal.400"
+                textDecorationThickness="5px"
               >
                 お知らせ
               </Heading>
@@ -141,6 +142,7 @@ export default function Home() {
                   textDecor="underline"
                   textUnderlineOffset="10px"
                   textDecorationColor="teal.400"
+                  textDecorationThickness="5px"
                 >
                   新着記事
                 </Heading>
@@ -200,6 +202,7 @@ export default function Home() {
                   textDecor="underline"
                   textUnderlineOffset="10px"
                   textDecorationColor="teal.400"
+                  textDecorationThickness="5px"
                 >
                   Twitter
                 </Heading>

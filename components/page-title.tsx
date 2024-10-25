@@ -15,7 +15,7 @@ export default function PageHeader({ pathname }: { pathname: string }) {
           textDecor="underline"
           textUnderlineOffset="12px"
           textDecorationColor="teal.400"
-          textDecorationThickness="5px"
+          textDecorationThickness="7px"
           mt="10px"
         >
           {pathname}

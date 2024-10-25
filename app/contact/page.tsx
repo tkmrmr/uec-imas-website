@@ -26,7 +26,7 @@ export default function Contact() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
-          p={{ base: 8, sm: 10 }}
+          p={{ base: 7, sm: 10 }}
         >
           <Heading py="5px">お問い合わせ</Heading>
           <Form />
@@ -36,7 +36,7 @@ export default function Contact() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
-          p={{ base: 8, sm: 10 }}
+          p={{ base: 7, sm: 10 }}
         >
           <Heading py="5px">Q&A</Heading>
           <QA />

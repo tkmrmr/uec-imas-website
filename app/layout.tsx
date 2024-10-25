@@ -37,11 +37,17 @@ export default function RootLayout({
           content="D@NPEN - 電気通信大学アイドルマスター研究会"
         />
         <meta
+          property="og:site_name"
+          content="D@NPEN - 電気通信大学アイドルマスター研究会"
+        />
+        <meta
           property="og:description"
           content="電気通信大学学友会公認サークル「D@NPEN」公式サイトです。"
         />
-        <meta property="og:image" content="/top2023.png" />
-        <meta property="og:url" content="https://dev.uec-imas.com" />
+        <meta property="og:image" content="/icon.webp" />
+        <meta property="og:url" content="https://uec-imas.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ja_JP" />
         <meta name="twitter:card" content="summary" />
         <meta
           name="twitter:title"
@@ -51,7 +57,7 @@ export default function RootLayout({
           name="twitter:description"
           content="電気通信大学学友会公認サークル「D@NPEN」公式サイトです。"
         />
-        <meta name="twitter:image" content="/top2023.png" />
+        <meta name="twitter:image" content="/icon.webp" />
       </head>
       <body className={notoSansJP.className}>
         <Providers>

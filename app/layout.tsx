@@ -3,7 +3,7 @@
 import { Providers } from "./providers";
 import { Noto_Sans_JP } from "next/font/google";
 import { usePathname } from "next/navigation";
-import { Head } from "next/head";
+import Head from "next/head";
 import { Container, Flex } from "@chakra-ui/react";
 import Header from "../components/header";
 import Footer from "../components/footer";

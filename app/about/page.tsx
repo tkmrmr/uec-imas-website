@@ -9,7 +9,7 @@ export default function About() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
-          p={{ base: 8, sm: 10 }}
+          p={{ base: 7, sm: 10 }}
         >
           <Heading>D@NPENについて</Heading>
           <Text
@@ -44,7 +44,7 @@ export default function About() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
-          p={{ base: 8, sm: 10 }}
+          p={{ base: 7, sm: 10 }}
         >
           <Heading>活動内容</Heading>
           <Box
@@ -104,7 +104,7 @@ export default function About() {
           border="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
-          p={{ base: 8, sm: 10 }}
+          p={{ base: 7, sm: 10 }}
         >
           <Heading>会費</Heading>
           <Text

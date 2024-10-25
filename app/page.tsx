@@ -19,7 +19,7 @@ export default function Home() {
   const { noteData, isLoading } = useNote();
   const newPosts = noteData?.pageEmbedLinks?.slice(0, 2);
 
-  preload("/top2023.png", {
+  preload("/top2023.webp", {
     as: "image",
   });
 

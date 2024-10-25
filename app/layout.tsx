@@ -3,7 +3,6 @@
 import { Providers } from "./providers";
 import { Noto_Sans_JP } from "next/font/google";
 import { usePathname } from "next/navigation";
-import Head from "next/head";
 import { Container, Flex } from "@chakra-ui/react";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -27,7 +26,7 @@ export default function RootLayout({
   }
   return (
     <html lang="ja">
-      <Head>
+      <head>
         <title>D@NPEN - 電気通信大学アイドルマスター研究会</title>
         <meta
           name="description"
@@ -59,7 +58,7 @@ export default function RootLayout({
           content="電気通信大学学友会公認サークル「D@NPEN」公式サイトです。"
         />
         <meta name="twitter:image" content="/icon.webp" />
-      </Head>
+      </head>
       <body className={notoSansJP.className}>
         <Providers>
           <Flex direction="column" minH="100vh" bgColor="gray.50">

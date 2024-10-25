@@ -10,10 +10,12 @@ import {
   SimpleGrid,
   Spinner,
   Center,
+  Divider,
 } from "@chakra-ui/react";
 import ArticleCard from "../components/article-card";
 import useNote from "../lib/use-note";
-import TwitterTimeline from "@/components/twitter-timeline";
+import TwitterTimeline from "../components/twitter-timeline";
+import { hasNotice, notices } from "../lib/notices";
 
 export default function Home() {
   const { noteData, isLoading } = useNote();
@@ -98,16 +100,35 @@ export default function Home() {
                 border="1px solid #E2E8F0"
                 borderRadius="2xl"
                 boxShadow="md"
-                p={{ base: 4, sm: 6 }}
-                minH="5em"
+                p={{ base: 7, sm: 9 }}
+                minH="100px"
               >
-                <Text
-                  textAlign="center"
-                  fontSize={{ base: "md", sm: "lg" }}
-                  lineHeight="5em"
-                >
-                  特にお知らせはありません。
-                </Text>
+                {hasNotice ? (
+                  <Box>
+                    <Text fontSize={{ base: "xs", sm: "sm" }} mb={1}>
+                      {notices[0].date}
+                    </Text>
+                    <Text fontSize={{ base: "lg", sm: "xl" }}>
+                      {notices[0].title}
+                    </Text>
+                    <Divider my={3} borderColor="teal.400" borderWidth="2px" />
+                    <Text
+                      fontSize={{ base: "md", sm: "lg" }}
+                      mt={6}
+                      whiteSpace="pre-wrap"
+                    >
+                      {notices[0].content}
+                    </Text>
+                  </Box>
+                ) : (
+                  <Text
+                    textAlign="center"
+                    fontSize={{ base: "md", sm: "lg" }}
+                    lineHeight="100px"
+                  >
+                    特にお知らせはありません。
+                  </Text>
+                )}
               </Box>
             </Box>
             {/* note */}
@@ -158,10 +179,10 @@ export default function Home() {
                       )}
                     </SimpleGrid>
                   ) : (
-                    <Box h={{ base: "294px", md: "600px" }}>
+                    <Box minH={{ base: "294px", md: "600px" }}>
                       <Text
                         textAlign="center"
-                        fontSize="lg"
+                        fontSize={{ base: "md", sm: "lg" }}
                         lineHeight={{ base: "294px", md: "600px" }}
                       >
                         記事はまだありません。

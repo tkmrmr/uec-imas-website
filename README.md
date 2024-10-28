@@ -31,7 +31,7 @@ http://localhost:3000 にアクセスしてください．
 
 TOP のお知らせは`/lib/notices.ts`の`notices`に以下の形式で追加してください．
 
-```diff-typescript
+```diff
 export const notices: Notice[] = [
 + {
 +   date: "edit_date",
@@ -49,7 +49,7 @@ export const notices: Notice[] = [
 
 WORKS の制作物(会報)追加は`lib/bulletins.ts`の`bulletins`に以下の形式で追加してください．
 
-```diff-typescript
+```diff
 export const bulletins: Bulletin[] = [
 +   {
 +   id: 9

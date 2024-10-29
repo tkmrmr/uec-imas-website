@@ -28,18 +28,18 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <title>D@NPEN - 電気通信大学アイドルマスター研究会</title>
+        <title>電気通信大学アイドルマスター研究会【D@NPEN】</title>
         <meta
           name="description"
           content="電気通信大学学友会公認サークル「D@NPEN」公式サイトです。"
         />
         <meta
           property="og:title"
-          content="D@NPEN - 電気通信大学アイドルマスター研究会"
+          content="電気通信大学アイドルマスター研究会【D@NPEN】"
         />
         <meta
           property="og:site_name"
-          content="D@NPEN - 電気通信大学アイドルマスター研究会"
+          content="電気通信大学アイドルマスター研究会【D@NPEN】"
         />
         <meta
           property="og:description"
@@ -52,7 +52,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary" />
         <meta
           name="twitter:title"
-          content="D@NPEN - 電気通信大学アイドルマスター研究会"
+          content="電気通信大学アイドルマスター研究会【D@NPEN】"
         />
         <meta
           name="twitter:description"

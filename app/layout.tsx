@@ -59,6 +59,10 @@ export default function RootLayout({
           content="電気通信大学学友会公認サークル「D@NPEN」公式サイトです。"
         />
         <meta name="twitter:image" content="/icon.webp" />
+        <meta
+          name="google-site-verification"
+          content="m2EpZ-wvwcvHIefUmepHnxYiFgkS20z1sf1Lm0J83wI"
+        />
       </head>
       <body className={notoSansJP.className}>
         <Providers>

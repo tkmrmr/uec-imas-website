@@ -21,7 +21,8 @@ export default function Home() {
   const { noteData, isLoading } = useNote();
   const newPosts = noteData?.pageEmbedLinks?.slice(0, 2);
 
-  preload("/top2023.webp", {
+  // トップ画像読み込み
+  preload("/top/2023.webp", {
     as: "image",
   });
 
@@ -43,7 +44,8 @@ export default function Home() {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundImage: 'url("/top2023.webp")',
+          // トップ画像指定
+          backgroundImage: 'url("/top/2023.webp")',
           backgroundSize: "cover",
           backgroundPosition: { base: "52.5%", md: "center 0px" },
           backgroundRepeat: "no-repeat",

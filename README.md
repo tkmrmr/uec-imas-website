@@ -29,44 +29,60 @@ http://localhost:3000 にアクセスしてください．
 
 ## コンテンツの編集の仕方
 
-TOP のお知らせは`/lib/notices.ts`の`notices`に以下の形式で追加してください．
+TOP ページのお知らせを更新する際は`/lib/notices.ts`の`notices`の先頭に以下の形式で追加してください．
 
 ```diff
-export const notices: Notice[] = [
-+ {
-+   date: "edit_date",
-+   title: "notice_title",
-+   content: "notice_content",
-+ },
-  {
-    date: "2024/10/25",
-    title: "ホームページをリニューアルしました！",
-    content:
-      "電通大アイマス研の旧ホームページは長らく更新が途絶えていましたが、この度リニューアルして再開しました。",
-  },
-];
+  export const notices: Notice[] = [
++   {
++     date: "更新日",
++     title: "お知らせのタイトル",
++     content: "お知らせの内容",
++   },
+    {
+      date: "2024/10/25",
+      title: "ホームページをリニューアルしました！",
+      content:
+        "電通大アイマス研の旧ホームページは長らく更新が途絶えていましたが、この度リニューアルして再開しました。",
+    },
+  ];
 ```
 
-WORKS の制作物(会報)追加は`lib/bulletins.ts`の`bulletins`に以下の形式で追加してください．
+WORKS ページの制作物(会報)追加は`/lib/bulletins.ts`の`bulletins`の先頭に以下の形式で追加してください．画像の形式は WebP でお願いします．
 
 ```diff
-export const bulletins: Bulletin[] = [
+  export const bulletins: Bulletin[] = [
 +   {
-+   id: 9
-+   title: "new_bulletin_title",
-+   image: "/bulletin/new_bulletin_image.webp",
-+   publishedYear: "new_bulletin_published_year",
-+   color: "new_bulletin_logo_color",
-+ },
-  {
-    id: 8,
-    title: "D@NPEN会報第八号",
-    image: "/bulletin/vol_8.webp",
-    publishedYear: "2022",
-    color: "#E06A8F",
-  },
-  ...
-]
++     id: 9
++     title: "タイトル",
++     image: "/bulletin/表紙画像のファイル名.webp",
++     publishedYear: "発行年",
++     color: "表紙のロゴの色",
++   },
+    {
+      id: 8,
+      title: "D@NPEN会報第八号",
+      image: "/bulletin/vol_8.webp",
+      publishedYear: "2022",
+      color: "#E06A8F",
+    },
+    ...
+  ]
+```
+
+トップ画像を替える際は`/top/`に画像を追加し，`/app/page.tsx`のトップ画像読み込み部分とトップ画像指定部分のパスを書き換えてください．
+
+```diff
+  // トップ画像読み込み
+- preload("/top/2023.webp", {
++ preload("/top/追加画像のファイル名.webp", {
+    as: "image",
+  });
+```
+
+```diff
+  // トップ画像指定
+- backgroundImage: 'url("/top/2023.webp")',
++ backgroundImage: 'url("/top/追加画像のファイル名.webp")',
 ```
 
 ## その他

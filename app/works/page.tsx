@@ -7,7 +7,7 @@ export default function Works() {
     <Box m={{ base: "40px 0", md: "40px 30px" }}>
       <Text
         mb="30px"
-        px={{ base: 8, sm: 10 }}
+        px={{ base: 7, sm: 10 }}
         fontSize={{ base: "md", sm: "lg" }}
       >
         D@NPENでは、創作活動として毎年冬のコミックマーケットで（2017年のみ夏のコミックマーケットでも）会報を発行・頒布しています。

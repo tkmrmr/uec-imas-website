@@ -9,7 +9,7 @@ export default function Contact() {
     <Box m={{ base: "40px 0", md: "40px 30px" }}>
       <Text
         pb="30px"
-        px={{ base: 8, sm: 10 }}
+        px={{ base: 7, sm: 10 }}
         fontSize={{ base: "md", sm: "lg" }}
       >
         D@NPENでは、通年で新規入会者を募集しています。

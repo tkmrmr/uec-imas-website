@@ -6,7 +6,7 @@ export const EmailTemplate = ({
 }: {
   name: string;
   email: string;
-  category: "ご入会希望" | "サークルについて" | "このサイトについて" | "その他";
+  category: "入会希望" | "サークルについて" | "このサイトについて" | "その他";
   content: string;
 }) => {
   return (

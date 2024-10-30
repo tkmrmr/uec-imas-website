@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Stack, Heading, Text, Link } from "@chakra-ui/react";
 import QA from "../../components/qa";
 import Form from "../../components/form";

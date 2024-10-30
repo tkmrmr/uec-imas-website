@@ -45,7 +45,7 @@ export default function RootLayout({
           property="og:description"
           content="電気通信大学学友会公認サークル「D@NPEN」公式サイトです。"
         />
-        <meta property="og:image" content="/icon.webp" />
+        <meta property="og:image" content="https://uec-imas.com/icon.webp" />
         <meta property="og:url" content="https://uec-imas.com" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ja_JP" />
@@ -58,7 +58,7 @@ export default function RootLayout({
           name="twitter:description"
           content="電気通信大学学友会公認サークル「D@NPEN」公式サイトです。"
         />
-        <meta name="twitter:image" content="/icon.webp" />
+        <meta name="twitter:image" content="https://uec-imas.com/icon.webp" />
         <meta
           name="google-site-verification"
           content="m2EpZ-wvwcvHIefUmepHnxYiFgkS20z1sf1Lm0J83wI"

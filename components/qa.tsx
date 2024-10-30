@@ -1,8 +1,4 @@
-import { Box, Divider, Stack, chakra } from "@chakra-ui/react";
-
-const Dl = chakra("dl");
-const Dt = chakra("dt");
-const Dd = chakra("dd");
+import { Box, Divider, Stack, Text } from "@chakra-ui/react";
 
 type QA = {
   question: string;
@@ -60,8 +56,9 @@ export default function QA() {
       <Stack>
         {QAList.map((qa, index) => (
           <Box key={index}>
-            <Dl pb="16px" pt="8px">
-              <Dt
+            <Box as="dl" pb="16px" pt="8px">
+              <Text
+                as="dt"
                 _before={{
                   content: "'Q '",
                   marginRight: ".7em",
@@ -72,8 +69,9 @@ export default function QA() {
                 mb="0.3em"
               >
                 {qa.question}
-              </Dt>
-              <Dd
+              </Text>
+              <Text
+                as="dd"
                 _before={{
                   content: "'A '",
                   marginRight: ".7em",
@@ -84,8 +82,8 @@ export default function QA() {
                 display="flex"
               >
                 {qa.answer}
-              </Dd>
-            </Dl>
+              </Text>
+            </Box>
             <Divider />
           </Box>
         ))}

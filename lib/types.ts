@@ -22,9 +22,3 @@ export type Bulletin = {
   publishedYear: string;
   color: string;
 };
-
-export type Notice = {
-  date: string;
-  title: string;
-  content: string;
-};

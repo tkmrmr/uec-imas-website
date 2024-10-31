@@ -38,9 +38,9 @@ WORKS ページの制作物(会報)追加は`/lib/bulletins.ts`の`bulletins`の
 +   {
 +     id: 9
 +     title: "タイトル",
-+     image: "/bulletin/表紙画像のファイル名.webp",
++     image: "/bulletin/表紙画像.webp",
 +     publishedYear: "発行年",
-+     color: "表紙のロゴの色",
++     color: "「断片、〇〇。」の色",
 +   },
     {
       id: 8,
@@ -58,7 +58,7 @@ WORKS ページの制作物(会報)追加は`/lib/bulletins.ts`の`bulletins`の
 ```diff
   // トップ画像読み込み
 - preload("/top/2023.webp", {
-+ preload("/top/追加画像のファイル名.webp", {
++ preload("/top/追加画像.webp", {
     as: "image",
   });
 ```
@@ -66,7 +66,7 @@ WORKS ページの制作物(会報)追加は`/lib/bulletins.ts`の`bulletins`の
 ```diff
   // トップ画像指定
 - backgroundImage: 'url("/top/2023.webp")',
-+ backgroundImage: 'url("/top/追加画像のファイル名.webp")',
++ backgroundImage: 'url("/top/追加画像.webp")',
 ```
 
 ## その他
@@ -78,6 +78,9 @@ RESEND_API_KEY="your_resend_api_key"
 NEXT_PUBLIC_TURNSTILE_SITE_KEY="your_turnstile_site_key"
 TURNSTILE_SECRET_KET="your_turnstile_secret_key"
 EMAIL="your_email_address"
+MICROCMS_SERVICE_DOMAIN="service_domain"
+MICROCMS_API_KEY="your_microcms_api_key"
+MICROCMS_WEBHOOK_SIGNATURE_SECRET="your_webhook_signature_secret"
 ```
 
 詳細は[@amatkmr](https://twitter.com/amatkmr)までお願いします．

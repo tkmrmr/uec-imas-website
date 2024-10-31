@@ -3,7 +3,7 @@
 import { Providers } from "./providers";
 import { Noto_Sans_JP } from "next/font/google";
 import { usePathname } from "next/navigation";
-import { Container, Flex } from "@chakra-ui/react";
+import { Container, Box } from "@chakra-ui/react";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -66,7 +66,7 @@ export default function RootLayout({
       </head>
       <body className={notoSansJP.className}>
         <Providers>
-          <Flex direction="column" minH="100vh" bgColor="gray.50">
+          <Box bgColor="gray.50">
             <Header pathname={pathname} />
             {pathname !== "/" && pathnameExists && (
               <PageHeader pathname={pathname.slice(1)} />
@@ -83,7 +83,7 @@ export default function RootLayout({
               </>
             )}
             <Footer />
-          </Flex>
+          </Box>
         </Providers>
       </body>
     </html>

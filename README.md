@@ -29,23 +29,7 @@ http://localhost:3000 にアクセスしてください．
 
 ## コンテンツの編集の仕方
 
-TOP ページのお知らせを更新する際は`/lib/notices.ts`の`notices`の先頭に以下の形式で追加してください．
-
-```diff
-  export const notices: Notice[] = [
-+   {
-+     date: "更新日",
-+     title: "お知らせのタイトル",
-+     content: "お知らせの内容",
-+   },
-    {
-      date: "2024/10/25",
-      title: "ホームページをリニューアルしました！",
-      content:
-        "電通大アイマス研の旧ホームページは長らく更新が途絶えていましたが、この度リニューアルして再開しました。",
-    },
-  ];
-```
+TOP ページのお知らせの更新には[microCMS](https://uec-imas.microcms.io/apis/notices)を用います．右上の「追加」ボタンからお知らせのタイトルと内容を入力し，公開してください．
 
 WORKS ページの制作物(会報)追加は`/lib/bulletins.ts`の`bulletins`の先頭に以下の形式で追加してください．画像の形式は WebP でお願いします．
 

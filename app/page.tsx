@@ -1,26 +1,10 @@
-"use client";
-
 import { preload } from "react-dom";
-import {
-  Box,
-  Heading,
-  Container,
-  Stack,
-  Text,
-  SimpleGrid,
-  Spinner,
-  Center,
-  Divider,
-} from "@chakra-ui/react";
-import ArticleCard from "../components/article-card";
-import useNote from "../lib/use-note";
+import { Box, Heading, Container, Stack, SimpleGrid } from "@chakra-ui/react";
 import TwitterTimeline from "../components/twitter-timeline";
-import { hasNotice, notices } from "../lib/notices";
+import Notice from "../components/notice";
+import Note from "../components/note";
 
 export default function Home() {
-  const { noteData, isLoading } = useNote();
-  const newPosts = noteData?.pageEmbedLinks?.slice(0, 2);
-
   // トップ画像読み込み
   preload("/top/2023.webp", {
     as: "image",
@@ -86,115 +70,10 @@ export default function Home() {
         <Box m="40px 0px">
           <Stack spacing={5}>
             {/* お知らせ */}
-            <Box pb={5}>
-              <Heading
-                textAlign="center"
-                pt={6}
-                pb={12}
-                textDecor="underline"
-                textUnderlineOffset="10px"
-                textDecorationColor="teal.400"
-                textDecorationThickness="5px"
-              >
-                お知らせ
-              </Heading>
-              <Box
-                bgColor="white"
-                border="1px solid #E2E8F0"
-                borderRadius="2xl"
-                boxShadow="md"
-                p={{ base: 7, sm: 9 }}
-                minH="100px"
-              >
-                {hasNotice ? (
-                  <Box>
-                    <Text fontSize={{ base: "xs", sm: "sm" }} mb={1}>
-                      {notices[0].date}
-                    </Text>
-                    <Text fontSize={{ base: "lg", sm: "xl" }}>
-                      {notices[0].title}
-                    </Text>
-                    <Divider my={3} borderColor="teal.400" borderWidth="2px" />
-                    <Text
-                      fontSize={{ base: "md", sm: "lg" }}
-                      mt={6}
-                      whiteSpace="pre-wrap"
-                    >
-                      {notices[0].content}
-                    </Text>
-                  </Box>
-                ) : (
-                  <Text
-                    textAlign="center"
-                    fontSize={{ base: "md", sm: "lg" }}
-                    lineHeight="100px"
-                  >
-                    特にお知らせはありません。
-                  </Text>
-                )}
-              </Box>
-            </Box>
-            {/* note */}
+            <Notice />
             <SimpleGrid columns={[null, 1, 2]} gap={{ base: 0, md: 6 }}>
-              <Box pb={5}>
-                <Heading
-                  textAlign="center"
-                  pt={6}
-                  pb={12}
-                  textDecor="underline"
-                  textUnderlineOffset="10px"
-                  textDecorationColor="teal.400"
-                  textDecorationThickness="5px"
-                >
-                  新着記事
-                </Heading>
-                <Box
-                  bgColor="white"
-                  border="1px solid #E2E8F0"
-                  borderRadius="2xl"
-                  boxShadow="md"
-                  p={{ base: 4, sm: 6 }}
-                >
-                  {isLoading ? (
-                    <Center minH={{ base: "294px", md: "600px" }}>
-                      <Spinner size="xl" />
-                    </Center>
-                  ) : (newPosts ?? []).length > 0 ? (
-                    <SimpleGrid minH={{ base: "294px", md: "600px" }}>
-                      {newPosts?.map((post, index) => (
-                        <ArticleCard
-                          key={index}
-                          post={post}
-                          index={index}
-                          boxShadow="none"
-                          margin={
-                            index % 2
-                              ? { base: "6px 0 0 " }
-                              : { base: " 0 0 6px " }
-                          }
-                        />
-                      ))}
-                      {newPosts?.length === 1 && (
-                        <Box
-                          h={{ md: "278.2px" }}
-                          p={{ md: "1px" }}
-                          mt={{ md: "6px" }}
-                        ></Box>
-                      )}
-                    </SimpleGrid>
-                  ) : (
-                    <Box minH={{ base: "294px", md: "600px" }}>
-                      <Text
-                        textAlign="center"
-                        fontSize={{ base: "md", sm: "lg" }}
-                        lineHeight={{ base: "294px", md: "600px" }}
-                      >
-                        記事はまだありません。
-                      </Text>
-                    </Box>
-                  )}
-                </Box>
-              </Box>
+              {/* note */}
+              <Note />
               {/* Twitter */}
               <Box pb={5}>
                 <Heading

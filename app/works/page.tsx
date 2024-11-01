@@ -1,8 +1,18 @@
 import { Box, Text, SimpleGrid } from "@chakra-ui/react";
 import BulletinCard from "../../components/bulletin-card";
-import { bulletins } from "../../lib/bulletins";
+import { Bulletin } from "../../lib/types";
+import { client } from "../../lib/client";
 
-export default function Works() {
+export default async function Works() {
+  const data = await client.get({
+    customRequestInit: {
+      cache: "no-store",
+    },
+    endpoint: "bulletins",
+    queries: { limit: 100, orders: "-createdAt" },
+  });
+  const bulletins: Bulletin[] = data.contents;
+
   return (
     <Box m={{ base: "40px 0", md: "40px 30px" }}>
       <Text

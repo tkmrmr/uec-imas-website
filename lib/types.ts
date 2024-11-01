@@ -19,6 +19,6 @@ export type Bulletin = {
   id: number;
   title: string;
   image: string;
-  publishedYear: string;
+  publishedYear: number;
   color: string;
 };

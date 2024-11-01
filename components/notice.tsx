@@ -5,8 +5,7 @@ import { client } from "../lib/client";
 export default async function Notice() {
   const data = await client.get({
     customRequestInit: {
-      //   cache: "no-store",
-      next: { tags: ["notice"] },
+      next: { tags: ["notices"] },
     },
     endpoint: "notices",
     queries: { limit: 1, orders: "-publishedAt" },

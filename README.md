@@ -53,21 +53,7 @@ WORKS ページの制作物(会報)追加は`/lib/bulletins.ts`の`bulletins`の
   ]
 ```
 
-トップ画像を替える際は`/top/`に画像を追加し，`/app/page.tsx`のトップ画像読み込み部分とトップ画像指定部分のパスを書き換えてください．
-
-```diff
-  // トップ画像読み込み
-- preload("/top/2023.webp", {
-+ preload("/top/追加画像.webp", {
-    as: "image",
-  });
-```
-
-```diff
-  // トップ画像指定
-- backgroundImage: 'url("/top/2023.webp")',
-+ backgroundImage: 'url("/top/追加画像.webp")',
-```
+トップ画像を替える際は`/public/top.webp`を差し替えてデプロイしてください．
 
 ## その他
 

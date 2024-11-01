@@ -6,7 +6,7 @@ import Note from "../components/note";
 
 export default function Home() {
   // トップ画像読み込み
-  preload("/top/2023.webp", {
+  preload("/top.webp", {
     as: "image",
   });
 
@@ -29,7 +29,7 @@ export default function Home() {
           width: "100%",
           height: "100%",
           // トップ画像指定
-          backgroundImage: 'url("/top/2023.webp")',
+          backgroundImage: 'url("/top.webp")',
           backgroundSize: "cover",
           backgroundPosition: { base: "52.5%", md: "center 0px" },
           backgroundRepeat: "no-repeat",

@@ -5,9 +5,9 @@ import { client } from "../../lib/client";
 
 export default async function Works() {
   const data = await client.get({
-    customRequestInit: {
-      cache: "no-store",
-    },
+    // customRequestInit: {
+    //   cache: "no-store",
+    // },
     endpoint: "bulletins",
     queries: { limit: 100, orders: "-createdAt" },
   });

@@ -16,9 +16,17 @@ export type Link = {
 };
 
 export type Bulletin = {
-  id: number;
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+  revisedAt: Date;
   title: string;
-  image: string;
+  image: {
+    url: string;
+    height: number;
+    width: number;
+  };
   publishedYear: number;
   color: string;
 };

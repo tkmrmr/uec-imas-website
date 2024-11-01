@@ -7,7 +7,6 @@ import {
   Image,
   Stack,
 } from "@chakra-ui/react";
-
 import { Bulletin } from "../lib/types";
 
 export default function BulletinCard({ bulletin }: { bulletin: Bulletin }) {
@@ -18,7 +17,7 @@ export default function BulletinCard({ bulletin }: { bulletin: Bulletin }) {
       boxShadow="md"
     >
       <CardBody>
-        <Image src={bulletin.image} alt="" />
+        <Image src={bulletin.image.url} alt="" />
       </CardBody>
       <CardFooter>
         <Stack>

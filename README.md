@@ -29,35 +29,14 @@ http://localhost:3000 にアクセスしてください．
 
 ## コンテンツの編集の仕方
 
-TOP ページのお知らせの更新には[microCMS](https://uec-imas.microcms.io/apis/notices)を用います．右上の「追加」ボタンからお知らせのタイトルと内容を入力し，公開してください．
-
-WORKS ページの制作物(会報)追加は`/lib/bulletins.ts`の`bulletins`の先頭に以下の形式で追加してください．画像の形式は WebP でお願いします．
-
-```diff
-  export const bulletins: Bulletin[] = [
-+   {
-+     id: 9
-+     title: "タイトル",
-+     image: "/bulletin/表紙画像.webp",
-+     publishedYear: "発行年",
-+     color: "「断片、〇〇。」の色",
-+   },
-    {
-      id: 8,
-      title: "D@NPEN会報第八号",
-      image: "/bulletin/vol_8.webp",
-      publishedYear: "2022",
-      color: "#E06A8F",
-    },
-    ...
-  ]
-```
+TOP ページのお知らせの更新と WORKS ページの会報追加には[microCMS](https://uec-imas.microcms.io)を用います．それぞれ「お知らせ」「会報」という API が割り当てられているので，各ページ右上の「追加」ボタンからコンテンツを追加して公開してください．
+なお，会報を追加する際，「表紙」には WebP 形式の表紙画像（650×900 以上，なるべく 150KB 以下）を，「イメージカラー」には表紙のキャッチコピー「断片、〇〇。」のカラーコードを割り当ててください．
 
 トップ画像を替える際は`/public/top.webp`を差し替えてデプロイしてください．
 
 ## その他
 
-動作には.env.local ファイルが必要となります．
+ローカル環境での動作には.env.local ファイルが必要となります．
 
 ```.env.local
 RESEND_API_KEY="your_resend_api_key"

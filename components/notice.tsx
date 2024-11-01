@@ -2,15 +2,25 @@ import { Box, Heading, Text, Divider } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { client } from "../lib/client";
 
+type Notice = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+  revisedAt: Date;
+  title: string;
+  content: string;
+};
+
 export default async function Notice() {
   const data = await client.get({
     customRequestInit: {
-      //   cache: "no-store",
-      next: { tags: ["notice"] },
+      next: { tags: ["notices"] },
     },
     endpoint: "notices",
     queries: { limit: 1, orders: "-publishedAt" },
   });
+  const notice: Notice = data.contents[0];
 
   return (
     <Box pb={5}>
@@ -36,18 +46,16 @@ export default async function Notice() {
         {data.totalCount ? (
           <Box>
             <Text fontSize={{ base: "xs", sm: "sm" }} mb={1}>
-              {dayjs(data.contents[0].publishedAt).format("YYYY/MM/DD")}
+              {dayjs(notice.publishedAt).format("YYYY/MM/DD")}
             </Text>
-            <Text fontSize={{ base: "lg", sm: "xl" }}>
-              {data.contents[0].title}
-            </Text>
+            <Text fontSize={{ base: "lg", sm: "xl" }}>{notice.title}</Text>
             <Divider my={3} borderColor="teal.400" borderWidth="2px" />
             <Text
               fontSize={{ base: "md", sm: "lg" }}
               mt={6}
               whiteSpace="pre-wrap"
             >
-              {data.contents[0].content}
+              {notice.content}
             </Text>
           </Box>
         ) : (

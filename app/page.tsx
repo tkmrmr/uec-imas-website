@@ -1,15 +1,10 @@
-import { preload } from "react-dom";
+import Image from "next/image";
 import { Box, Heading, Container, Stack, SimpleGrid } from "@chakra-ui/react";
 import TwitterTimeline from "../components/twitter-timeline";
 import Notice from "../components/notice";
 import Note from "../components/note";
 
 export default function Home() {
-  // トップ画像読み込み
-  preload("/top.webp", {
-    as: "image",
-  });
-
   return (
     <Box>
       {/* ヒーローセクション */}
@@ -21,32 +16,26 @@ export default function Home() {
         alignItems="center"
         justifyContent="center"
         color="black"
-        _before={{
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          // トップ画像指定
-          backgroundImage: 'url("/top.webp")',
-          backgroundSize: "cover",
-          backgroundPosition: { base: "52.5%", md: "center 0px" },
-          backgroundRepeat: "no-repeat",
-          filter: "brightness(90%)",
-          zIndex: 0,
-        }}
-        _after={{
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          bg: "rgba(0, 0, 0, 0.5)",
-          zIndex: 1,
-        }}
+        zIndex={1}
       >
+        <Image
+          src="/top.webp"
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          objectPosition="52.5% 0%"
+          priority={true}
+          style={{ filter: "brightness(90%)" }}
+        />
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          bg="rgba(0, 0, 0, 0.5)"
+          zIndex={1}
+        />
         <Box position="relative" zIndex={2} textAlign={"center"}>
           <Heading
             fontSize={{ base: "7xl", sm: "8xl", lg: "9xl" }}

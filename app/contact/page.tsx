@@ -26,7 +26,9 @@ export default function Contact() {
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
         >
-          <Heading py="5px">お問い合わせ</Heading>
+          <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
+            お問い合わせ
+          </Heading>
           <Form />
         </Box>
         <Box
@@ -36,7 +38,9 @@ export default function Contact() {
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
         >
-          <Heading py="5px">Q&A</Heading>
+          <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
+            Q&A
+          </Heading>
           <QA />
         </Box>
       </Stack>

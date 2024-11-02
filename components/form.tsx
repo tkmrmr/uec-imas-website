@@ -92,7 +92,7 @@ export default function Form() {
   };
 
   return (
-    <Box mx={{ base: 0, md: 7 }} my={{ base: 4, md: 7 }}>
+    <Box mx={{ base: 0, md: 7 }} my={{ base: 3, md: 6 }}>
       {isSubmitSuccessful ? (
         <Text pt="8px" fontSize={{ base: "md", sm: "lg" }}>
           送信しました。

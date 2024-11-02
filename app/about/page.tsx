@@ -11,12 +11,14 @@ export default function About() {
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
         >
-          <Heading>D@NPENについて</Heading>
+          <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
+            D@NPENについて
+          </Heading>
           <Text
             whiteSpace="pre-line"
             mt="1.5rem"
             mx={{ base: 0, md: 7 }}
-            my={{ base: 4, md: 7 }}
+            my={{ base: 3, md: 6 }}
             fontSize={{ base: "md", md: "lg" }}
           >
             D@NPEN（電気通信大学アイドルマスター研究会）は、電気通信大学のアイマスP有志により結成された学友会公認サークルです。
@@ -46,10 +48,12 @@ export default function About() {
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
         >
-          <Heading>活動内容</Heading>
+          <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
+            活動内容
+          </Heading>
           <Box
             mx={{ base: 0, md: 7 }}
-            my={{ base: 4, sm: 7 }}
+            my={{ base: 3, md: 6 }}
             fontSize={{ base: "md", md: "lg" }}
           >
             <Box as="dl">
@@ -106,10 +110,12 @@ export default function About() {
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
         >
-          <Heading>会費</Heading>
+          <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
+            会費
+          </Heading>
           <Text
             mx={{ base: 0, md: 7 }}
-            my={{ base: 4, md: 7 }}
+            my={{ base: 3, md: 6 }}
             fontSize={{ base: "md", md: "lg" }}
           >
             会費はかかりません。

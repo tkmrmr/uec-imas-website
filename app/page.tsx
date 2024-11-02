@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Box, Heading, Container, Stack, SimpleGrid } from "@chakra-ui/react";
 import TwitterTimeline from "../components/twitter-timeline";
 import Notice from "../components/notice";
@@ -17,18 +18,14 @@ export default function Home() {
         color="black"
         zIndex={1}
       >
-        <Box
-          position="absolute"
-          top={0}
-          left={0}
-          width="100%"
-          height="100%"
-          bgImage="url('/top.webp')"
-          bgSize="cover"
-          bgPosition={{ base: "52.5%", md: "center 0px" }}
-          bgRepeat="no-repeat"
-          filter="brightness(90%)"
-          zIndex={0}
+        <Image
+          src="/top.webp"
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          objectPosition="52.5% 0%"
+          priority={true}
+          style={{ filter: "brightness(90%)" }}
         />
         <Box
           position="absolute"

@@ -50,7 +50,7 @@ export default function QA() {
   return (
     <Box
       mx={{ base: 0, md: 7 }}
-      my={{ base: 4, md: 7 }}
+      my={{ base: 3, md: 6 }}
       fontSize={{ base: "md", sm: "lg" }}
     >
       <Stack>

@@ -39,14 +39,14 @@ export default function Home() {
         <Box position="relative" zIndex={2} textAlign={"center"}>
           <Heading
             fontSize={{ base: "7xl", sm: "8xl", lg: "9xl" }}
-            bgGradient="linear(to-r, teal.50, teal.400)"
+            bgGradient="linear(to-tr, teal.50, teal.400)"
             bgClip="text"
           >
             D@NPEN
           </Heading>
           <Heading
             fontSize={{ base: "1xl", lg: "2xl" }}
-            bgGradient="linear(to-r, teal.50, teal.400)"
+            bgGradient="linear(to-tr, teal.50, teal.400)"
             bgClip="text"
           >
             電気通信大学アイドルマスター研究会

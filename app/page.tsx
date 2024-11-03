@@ -59,10 +59,36 @@ export default function Home() {
         <Box m="40px 0px">
           <Stack spacing={5}>
             {/* お知らせ */}
-            <Notice />
+            <Box pb={5}>
+              <Heading
+                textAlign="center"
+                pt={6}
+                pb={12}
+                textDecor="underline"
+                textUnderlineOffset="10px"
+                textDecorationColor="teal.400"
+                textDecorationThickness="5px"
+              >
+                お知らせ
+              </Heading>
+              <Notice />
+            </Box>
             <SimpleGrid columns={[null, 1, 2]} gap={{ base: 0, md: 6 }}>
               {/* note */}
-              <Note />
+              <Box pb={5}>
+                <Heading
+                  textAlign="center"
+                  pt={6}
+                  pb={12}
+                  textDecor="underline"
+                  textUnderlineOffset="10px"
+                  textDecorationColor="teal.400"
+                  textDecorationThickness="5px"
+                >
+                  新着記事
+                </Heading>
+                <Note />
+              </Box>
               {/* Twitter */}
               <Box pb={5}>
                 <Heading

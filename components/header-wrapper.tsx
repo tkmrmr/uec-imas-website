@@ -4,19 +4,23 @@ export default function HeaderWrapper({
   children,
   bgColor = "whiteAlpha.800",
   boxShadow = "md",
+  isMovingHeader = true,
+  isBlur = true,
 }: {
   children: React.ReactNode;
-  bgColor: string;
-  boxShadow: string;
+  bgColor?: string;
+  boxShadow?: string;
+  isMovingHeader?: boolean;
+  isBlur?: boolean;
 }) {
   return (
     <Box
       as="header"
       bg={bgColor}
-      backdropFilter="blur(5px)"
+      backdropFilter={isBlur ? "blur(5px)" : "none"}
       h={{ base: "70px", sm: "100px" }}
       w="100%"
-      position="fixed"
+      position={isMovingHeader ? "fixed" : "absolute"}
       top={0}
       zIndex="docked"
       p={{ base: "0 10px", md: "0 40px" }}

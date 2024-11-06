@@ -5,11 +5,8 @@ import Navi from "./navi";
 import useStorage from "../lib/use-storage";
 
 export default function Header({ pathname }: { pathname: string }) {
-  const [color, setColor] = useState("white");
-  const [bgColor, setBgColor] = useState("rgba(0, 0, 0, 0)");
-  const [boxShadow, setBoxShadow] = useState("none");
   const [, setScrollY] = useStorage("howScroll", 0);
-  const [logoIsFiltered, setLogoIsFiltered] = useState(true);
+  const [hasMovingHeader, setHasMovingHeader] = useState(false);
 
   const handleScroll = useCallback(() => {
     setScrollY(window.scrollY);
@@ -19,16 +16,10 @@ export default function Header({ pathname }: { pathname: string }) {
     const initialScrollY = window.scrollY;
     setScrollY(initialScrollY);
 
-    if (initialScrollY > 0) {
-      setColor("gray.900");
-      setBgColor("whiteAlpha.800");
-      setBoxShadow("md");
-      setLogoIsFiltered(false);
+    if (initialScrollY > window.innerHeight) {
+      setHasMovingHeader(true);
     } else {
-      setColor("white");
-      setBgColor("rgba(0, 0, 0, 0)");
-      setBoxShadow("none");
-      setLogoIsFiltered(true);
+      setHasMovingHeader(false);
     }
 
     window.addEventListener("scroll", handleScroll);
@@ -40,12 +31,25 @@ export default function Header({ pathname }: { pathname: string }) {
   return (
     <>
       {pathname === "/" ? (
-        <HeaderWrapper bgColor={bgColor} boxShadow={boxShadow}>
-          <Logo isFiltered={logoIsFiltered} />
-          <Navi color={color} pathname={pathname} />
-        </HeaderWrapper>
+        <>
+          <HeaderWrapper
+            bgColor="rgba(0, 0, 0, 0)"
+            boxShadow="none"
+            isMovingHeader={false}
+            isBlur={false}
+          >
+            <Logo isFiltered={true} />
+            <Navi color="white" pathname={pathname} />
+          </HeaderWrapper>
+          {hasMovingHeader && (
+            <HeaderWrapper>
+              <Logo />
+              <Navi pathname={pathname} />
+            </HeaderWrapper>
+          )}
+        </>
       ) : (
-        <HeaderWrapper bgColor="whiteAlpha.800" boxShadow="md">
+        <HeaderWrapper>
           <Logo />
           <Navi pathname={pathname} />
         </HeaderWrapper>

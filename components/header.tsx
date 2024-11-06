@@ -6,7 +6,7 @@ import useStorage from "../lib/use-storage";
 
 export default function Header({ pathname }: { pathname: string }) {
   const [, setScrollY] = useStorage("howScroll", 0);
-  const [hasMovingHeader, setHasMovingHeader] = useState(false);
+  const [isClear, setIsClear] = useState(true);
 
   const handleScroll = useCallback(() => {
     setScrollY(window.scrollY);
@@ -17,9 +17,9 @@ export default function Header({ pathname }: { pathname: string }) {
     setScrollY(initialScrollY);
 
     if (initialScrollY > window.innerHeight) {
-      setHasMovingHeader(true);
+      setIsClear(false);
     } else {
-      setHasMovingHeader(false);
+      setIsClear(true);
     }
 
     window.addEventListener("scroll", handleScroll);
@@ -41,12 +41,10 @@ export default function Header({ pathname }: { pathname: string }) {
             <Logo isFiltered={true} />
             <Navi color="white" pathname={pathname} />
           </HeaderWrapper>
-          {hasMovingHeader && (
-            <HeaderWrapper>
-              <Logo />
-              <Navi pathname={pathname} />
-            </HeaderWrapper>
-          )}
+          <HeaderWrapper isClear={isClear}>
+            <Logo />
+            <Navi pathname={pathname} />
+          </HeaderWrapper>
         </>
       ) : (
         <HeaderWrapper>

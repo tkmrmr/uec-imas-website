@@ -6,12 +6,14 @@ export default function HeaderWrapper({
   boxShadow = "md",
   isMovingHeader = true,
   isBlur = true,
+  isClear = false,
 }: {
   children: React.ReactNode;
   bgColor?: string;
   boxShadow?: string;
   isMovingHeader?: boolean;
   isBlur?: boolean;
+  isClear?: boolean;
 }) {
   return (
     <Box
@@ -24,8 +26,9 @@ export default function HeaderWrapper({
       top={0}
       zIndex="docked"
       p={{ base: "0 10px", md: "0 40px" }}
-      transition="background-color 0.3s ease, box-shadow 0.3s ease"
+      transition="opacity 0.2s ease-out"
       boxShadow={boxShadow}
+      opacity={isClear ? 0 : 1}
     >
       <Flex
         justify="space-between"

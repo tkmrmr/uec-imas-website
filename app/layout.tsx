@@ -1,14 +1,9 @@
-"use client";
-
 import { Providers } from "./providers";
 import { Noto_Sans_JP } from "next/font/google";
-import { usePathname } from "next/navigation";
-import { Container, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import PageHeader from "../components/page-title";
-import { links } from "../lib/links";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 
@@ -17,14 +12,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-  let pathnameExists: boolean = false;
-  for (const link of links) {
-    if (link.href === pathname) {
-      pathnameExists = true;
-      break;
-    }
-  }
   return (
     <html lang="ja">
       <head>
@@ -82,21 +69,9 @@ export default function RootLayout({
       <body className={notoSansJP.className}>
         <Providers>
           <Box bgColor="gray.50" _dark={{ bgColor: "gray.800" }}>
-            <Header pathname={pathname} />
-            {pathname !== "/" && pathnameExists && (
-              <PageHeader pathname={pathname.slice(1)} />
-            )}
-            {pathname !== "/" ? (
-              <Container maxW="1100px" flex="1">
-                {children}
-                <Analytics />
-              </Container>
-            ) : (
-              <>
-                {children}
-                <Analytics />
-              </>
-            )}
+            <Header />
+            {children}
+            <Analytics />
             <Footer />
           </Box>
         </Providers>

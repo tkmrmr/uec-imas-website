@@ -3,6 +3,7 @@ import { Box, Flex } from "@chakra-ui/react";
 export default function HeaderWrapper({
   children,
   bgColor = "whiteAlpha.800",
+  darkBgColor = "blackAlpha.400",
   boxShadow = "md",
   isMovingHeader = true,
   isBlur = true,
@@ -10,6 +11,7 @@ export default function HeaderWrapper({
 }: {
   children: React.ReactNode;
   bgColor?: string;
+  darkBgColor?: string;
   boxShadow?: string;
   isMovingHeader?: boolean;
   isBlur?: boolean;
@@ -29,6 +31,7 @@ export default function HeaderWrapper({
       transition="opacity 0.2s ease-out"
       boxShadow={boxShadow}
       opacity={isClear ? 0 : 1}
+      _dark={{ bgColor: darkBgColor }}
     >
       <Flex
         justify="space-between"

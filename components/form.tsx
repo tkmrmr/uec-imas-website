@@ -170,7 +170,7 @@ export default function Form() {
               >
                 <Turnstile
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
-                  options={{ theme: "light", size: turnstileSize }}
+                  options={{ size: turnstileSize }}
                   onSuccess={onSuccess}
                 />
                 <Button

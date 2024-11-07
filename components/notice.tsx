@@ -25,11 +25,12 @@ export default async function Notice() {
   return (
     <Box
       bgColor="white"
-      border="1px solid #E2E8F0"
+      outline="1px solid #E2E8F0"
       borderRadius="2xl"
       boxShadow="md"
       p={{ base: 7, sm: 9 }}
       minH="100px"
+      _dark={{ bgColor: "gray.800", outline: "1px solid #3F444E" }}
     >
       {data.totalCount ? (
         <Box>
@@ -37,7 +38,12 @@ export default async function Notice() {
             {dayjs(notice.publishedAt).format("YYYY/MM/DD")}
           </Text>
           <Text fontSize={{ base: "lg", sm: "xl" }}>{notice.title}</Text>
-          <Divider my={3} borderColor="teal.400" borderWidth="2px" />
+          <Divider
+            my={3}
+            borderColor="teal.400"
+            borderWidth="2px"
+            _dark={{ borderColor: "teal.300" }}
+          />
           <Text
             fontSize={{ base: "md", sm: "lg" }}
             mt={6}

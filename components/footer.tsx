@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Center,
@@ -18,9 +20,9 @@ export default function Footer() {
       w="100%"
       mt="4rem"
       px={{ base: "10px", sm: "20px" }}
-      borderTop="1px solid"
       color="white"
       bgColor="gray.700"
+      _dark={{ bgColor: "gray.900" }}
     >
       <Box h={{ base: "400px", sm: "350px" }} py="12px">
         <Stack gap={14} h="100%" alignItems="center" justifyContent="center">
@@ -85,7 +87,7 @@ export default function Footer() {
           </Flex>
         </Stack>
       </Box>
-      <Divider colorScheme="gray" />
+      <Divider bgColor="gray" _dark={{ bgColor: "gray.400" }} />
       <Box h="120px">
         <Center>
           <Text color="white" lineHeight="120px">

@@ -1,10 +1,14 @@
+"use client";
+
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import HeaderWrapper from "./header-wrapper";
 import Logo from "./logo";
 import Navi from "./navi";
 import useStorage from "../lib/use-storage";
 
-export default function Header({ pathname }: { pathname: string }) {
+export default function Header() {
+  const pathname = usePathname();
   const [, setScrollY] = useStorage("howScroll", 0);
   const [isClear, setIsClear] = useState(true);
 
@@ -34,6 +38,7 @@ export default function Header({ pathname }: { pathname: string }) {
         <>
           <HeaderWrapper
             bgColor="rgba(0, 0, 0, 0)"
+            darkBgColor="rgba(0, 0, 0, 0)"
             boxShadow="none"
             isMovingHeader={false}
             isBlur={false}

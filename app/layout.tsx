@@ -1,5 +1,6 @@
 import { Providers } from "./providers";
 import { Noto_Sans_JP } from "next/font/google";
+import { cookies } from "next/headers";
 import { Box } from "@chakra-ui/react";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "../components/header";
@@ -12,6 +13,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const cookieValue = cookies().get("chakra-ui-color-mode")?.value;
+  const initialColorMode =
+    cookieValue === "light" || cookieValue === "dark" ? cookieValue : undefined;
   return (
     <html lang="ja">
       <head>
@@ -67,7 +71,7 @@ export default function RootLayout({
         />
       </head>
       <body className={notoSansJP.className}>
-        <Providers>
+        <Providers initialColorMode={initialColorMode}>
           <Box bgColor="gray.50" _dark={{ bgColor: "gray.800" }}>
             <Header />
             {children}

@@ -1,8 +1,37 @@
 "use client";
 
-import { ChakraProvider } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  cookieStorageManager,
+  ColorModeScript,
+} from "@chakra-ui/react";
 import theme from "../styles/theme";
 
-export function Providers({ children }: { children: React.ReactNode }) {
-  return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
+export function Providers({
+  children,
+  initialColorMode,
+}: {
+  children: React.ReactNode;
+  initialColorMode: "light" | "dark" | undefined;
+}) {
+  const themeWithNewConfig = {
+    ...theme,
+    config: {
+      ...theme.config,
+      initialColorMode: initialColorMode || "system",
+    },
+  };
+
+  return (
+    <ChakraProvider
+      colorModeManager={cookieStorageManager}
+      theme={themeWithNewConfig}
+    >
+      <ColorModeScript
+        type="cookie"
+        initialColorMode={themeWithNewConfig.config.initialColorMode}
+      />
+      {children}
+    </ChakraProvider>
+  );
 }

@@ -21,10 +21,11 @@ export default function Contact() {
       <Stack spacing={5}>
         <Box
           bgColor="white"
-          border="1px solid #E2E8F0"
+          outline="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
+          _dark={{ bgColor: "gray.800", outline: "1px solid #3F444E" }}
         >
           <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
             お問い合わせ
@@ -33,10 +34,11 @@ export default function Contact() {
         </Box>
         <Box
           bgColor="white"
-          border="1px solid #E2E8F0"
+          outline="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
+          _dark={{ bgColor: "gray.800", outline: "1px solid #3F444E" }}
         >
           <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
             Q&A

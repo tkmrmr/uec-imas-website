@@ -34,6 +34,7 @@ export default function Header({ pathname }: { pathname: string }) {
         <>
           <HeaderWrapper
             bgColor="rgba(0, 0, 0, 0)"
+            darkBgColor="rgba(0, 0, 0, 0)"
             boxShadow="none"
             isMovingHeader={false}
             isBlur={false}

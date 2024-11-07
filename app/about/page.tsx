@@ -6,10 +6,11 @@ export default function About() {
       <Stack spacing={5}>
         <Box
           bgColor="white"
-          border="1px solid #E2E8F0"
+          outline="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
+          _dark={{ bgColor: "gray.800", outline: "1px solid #3F444E" }}
         >
           <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
             D@NPENについて
@@ -43,10 +44,11 @@ export default function About() {
         </Box>
         <Box
           bgColor="white"
-          border="1px solid #E2E8F0"
+          outline="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
+          _dark={{ bgColor: "gray.800", outline: "1px solid #3F444E" }}
         >
           <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
             活動内容
@@ -105,10 +107,11 @@ export default function About() {
         </Box>
         <Box
           bgColor="white"
-          border="1px solid #E2E8F0"
+          outline="1px solid #E2E8F0"
           borderRadius="2xl"
           boxShadow="md"
           p={{ base: 7, sm: 10 }}
+          _dark={{ bgColor: "gray.800", outline: "1px solid #3F444E" }}
         >
           <Heading fontSize={{ base: "28px", sm: "30px", md: "36px" }}>
             会費

@@ -15,6 +15,7 @@ export default function Logo({ isFiltered = false }: { isFiltered?: boolean }) {
           w={{ base: "40px", md: "60px" }}
           filter={isFiltered ? "invert(100%)" : "none"}
           transition="filter 0.3s ease"
+          _dark={{ filter: "invert(100%)" }}
         />
       </Link>
     </Box>

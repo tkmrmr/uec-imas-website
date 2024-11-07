@@ -81,7 +81,7 @@ export default function RootLayout({
       </head>
       <body className={notoSansJP.className}>
         <Providers>
-          <Box bgColor="gray.50">
+          <Box bgColor="gray.50" _dark={{ bgColor: "gray.800" }}>
             <Header pathname={pathname} />
             {pathname !== "/" && pathnameExists && (
               <PageHeader pathname={pathname.slice(1)} />

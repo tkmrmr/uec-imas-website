@@ -11,10 +11,11 @@ export default function Note() {
   return (
     <Box
       bgColor="white"
-      border="1px solid #E2E8F0"
+      outline="1px solid #E2E8F0"
       borderRadius="2xl"
       boxShadow="md"
       p={{ base: 4, sm: 6 }}
+      _dark={{ bgColor: "gray.800", outline: "1px solid #3F444E" }}
     >
       {isLoading ? (
         <Center minH={{ base: "294px", md: "600px" }}>

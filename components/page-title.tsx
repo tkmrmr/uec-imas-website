@@ -17,6 +17,7 @@ export default function PageHeader({ pathname }: { pathname: string }) {
           textDecorationColor="teal.400"
           textDecorationThickness="7px"
           mt="10px"
+          _dark={{ textDecorationColor: "teal.300" }}
         >
           {pathname}
         </Heading>

@@ -39,15 +39,17 @@ export default function Home() {
         <Box position="relative" zIndex={2} textAlign={"center"}>
           <Heading
             fontSize={{ base: "7xl", sm: "8xl", lg: "9xl" }}
-            bgGradient="linear(to-tr, teal.50, teal.400)"
+            bgGradient="linear(to-tr, white, teal.400)"
             bgClip="text"
+            _dark={{ bgGradient: "linear(to-tr, teal.50, teal.500)" }}
           >
             D@NPEN
           </Heading>
           <Heading
             fontSize={{ base: "1xl", lg: "2xl" }}
-            bgGradient="linear(to-tr, teal.50, teal.400)"
+            bgGradient="linear(to-tr, white, teal.400)"
             bgClip="text"
+            _dark={{ bgGradient: "linear(to-tr, teal.50, teal.500)" }}
           >
             電気通信大学アイドルマスター研究会
           </Heading>
@@ -68,6 +70,7 @@ export default function Home() {
                 textUnderlineOffset="10px"
                 textDecorationColor="teal.400"
                 textDecorationThickness="5px"
+                _dark={{ textDecorationColor: "teal.300" }}
               >
                 お知らせ
               </Heading>
@@ -84,6 +87,7 @@ export default function Home() {
                   textUnderlineOffset="10px"
                   textDecorationColor="teal.400"
                   textDecorationThickness="5px"
+                  _dark={{ textDecorationColor: "teal.300" }}
                 >
                   新着記事
                 </Heading>
@@ -99,15 +103,17 @@ export default function Home() {
                   textUnderlineOffset="10px"
                   textDecorationColor="teal.400"
                   textDecorationThickness="5px"
+                  _dark={{ textDecorationColor: "teal.300" }}
                 >
                   Twitter
                 </Heading>
                 <Box
                   bgColor="white"
-                  border="1px solid #E2E8F0"
+                  outline="1px solid #E2E8F0"
                   borderRadius="2xl"
                   boxShadow="md"
                   p={{ base: 4, sm: 6 }}
+                  _dark={{ bgColor: "gray.800", outline: "1px solid #3F444E" }}
                 >
                   <TwitterTimeline />
                 </Box>

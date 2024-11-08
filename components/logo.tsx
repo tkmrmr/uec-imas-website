@@ -1,12 +1,15 @@
 import NextLink from "next/link";
 import { Box, Link, Image } from "@chakra-ui/react";
 
-export default function Logo({ isFiltered = false }: { isFiltered?: boolean }) {
+export default function Logo({
+  isFiltered = false,
+  isClear = false,
+}: {
+  isFiltered?: boolean;
+  isClear?: boolean;
+}) {
   return (
-    <Box
-      m={{ base: "0 10px", md: "0 20px" }}
-      p={{ base: "0 5px", md: "0 10px" }}
-    >
+    <Box pointerEvents={isClear ? "none" : "auto"}>
       <Link as={NextLink} href="/">
         <Image
           src="/logo.webp"

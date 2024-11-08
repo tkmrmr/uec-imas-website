@@ -15,18 +15,22 @@ import {
   Button,
   useDisclosure,
   useColorMode,
+  Divider,
 } from "@chakra-ui/react";
-import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { Sun, Moon } from "lucide-react";
 import { links } from "../lib/links";
 
 export default function Navi({
   color = "gray.900",
   darkColor = "white",
   pathname,
+  isClear = false,
 }: {
   color?: string;
   darkColor?: string;
   pathname: string;
+  isClear?: boolean;
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
@@ -94,7 +98,7 @@ export default function Navi({
             <DrawerFooter>
               <IconButton
                 onClick={toggleColorMode}
-                icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                icon={colorMode === "light" ? <Moon /> : <Sun />}
                 aria-label="Toggle color mode"
               />
             </DrawerFooter>
@@ -102,7 +106,10 @@ export default function Navi({
         </Drawer>
       </Box>
       {/* デスクトップ用メニュー */}
-      <Box display={{ base: "none", sm: "block" }}>
+      <Box
+        display={{ base: "none", sm: "block" }}
+        pointerEvents={isClear ? "none" : "auto"}
+      >
         <UnorderedList display="flex">
           {links.map((link, index) => (
             <ListItem
@@ -137,11 +144,24 @@ export default function Navi({
               </Link>
             </ListItem>
           ))}
+          <ListItem
+            listStyleType="none"
+            alignContent="center"
+            pr={{ sm: "12px", md: "18px", lg: "24px", xl: "30px" }}
+            py={9}
+          >
+            <Divider
+              orientation="vertical"
+              borderColor={color}
+              _dark={{ borderColor: darkColor }}
+            />
+          </ListItem>
           <ListItem listStyleType="none" alignContent="center">
             <IconButton
               onClick={toggleColorMode}
-              icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              icon={colorMode === "light" ? <Moon /> : <Sun />}
               aria-label="Toggle color mode"
+              aria-disabled={isClear}
               variant="ghost"
               color={color}
               _dark={{ color: darkColor }}

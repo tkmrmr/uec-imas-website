@@ -18,7 +18,7 @@ export function Providers({
     ...theme,
     config: {
       ...theme.config,
-      initialColorMode: initialColorMode || "system",
+      initialColorMode: initialColorMode || "light",
     },
   };
 

@@ -38,8 +38,8 @@ export default function Header() {
         <>
           {/* 追従 */}
           <HeaderWrapper isClear={isClear}>
-            <Logo />
-            <Navi pathname={pathname} />
+            <Logo isClear={isClear} />
+            <Navi pathname={pathname} isClear={isClear} />
           </HeaderWrapper>
           {/* 一番上 */}
           <HeaderWrapper

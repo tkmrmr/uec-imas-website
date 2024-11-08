@@ -25,10 +25,12 @@ export default function Navi({
   color = "gray.900",
   darkColor = "white",
   pathname,
+  isClear = false,
 }: {
   color?: string;
   darkColor?: string;
   pathname: string;
+  isClear?: boolean;
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
@@ -104,7 +106,10 @@ export default function Navi({
         </Drawer>
       </Box>
       {/* デスクトップ用メニュー */}
-      <Box display={{ base: "none", sm: "block" }}>
+      <Box
+        display={{ base: "none", sm: "block" }}
+        pointerEvents={isClear ? "none" : "auto"}
+      >
         <UnorderedList display="flex">
           {links.map((link, index) => (
             <ListItem
@@ -156,6 +161,7 @@ export default function Navi({
               onClick={toggleColorMode}
               icon={colorMode === "light" ? <Moon /> : <Sun />}
               aria-label="Toggle color mode"
+              aria-disabled={isClear}
               variant="ghost"
               color={color}
               _dark={{ color: darkColor }}

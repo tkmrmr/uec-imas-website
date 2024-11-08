@@ -15,8 +15,10 @@ import {
   Button,
   useDisclosure,
   useColorMode,
+  Divider,
 } from "@chakra-ui/react";
-import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { Sun, Moon } from "lucide-react";
 import { links } from "../lib/links";
 
 export default function Navi({
@@ -94,7 +96,7 @@ export default function Navi({
             <DrawerFooter>
               <IconButton
                 onClick={toggleColorMode}
-                icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                icon={colorMode === "light" ? <Moon /> : <Sun />}
                 aria-label="Toggle color mode"
               />
             </DrawerFooter>
@@ -137,10 +139,22 @@ export default function Navi({
               </Link>
             </ListItem>
           ))}
+          <ListItem
+            listStyleType="none"
+            alignContent="center"
+            pr={{ sm: "12px", md: "18px", lg: "24px", xl: "30px" }}
+            py={9}
+          >
+            <Divider
+              orientation="vertical"
+              borderColor={color}
+              _dark={{ borderColor: darkColor }}
+            />
+          </ListItem>
           <ListItem listStyleType="none" alignContent="center">
             <IconButton
               onClick={toggleColorMode}
-              icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              icon={colorMode === "light" ? <Moon /> : <Sun />}
               aria-label="Toggle color mode"
               variant="ghost"
               color={color}

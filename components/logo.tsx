@@ -3,10 +3,7 @@ import { Box, Link, Image } from "@chakra-ui/react";
 
 export default function Logo({ isFiltered = false }: { isFiltered?: boolean }) {
   return (
-    <Box
-      m={{ base: "0 10px", md: "0 20px" }}
-      p={{ base: "0 5px", md: "0 10px" }}
-    >
+    <Box>
       <Link as={NextLink} href="/">
         <Image
           src="/logo.webp"

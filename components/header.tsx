@@ -36,6 +36,12 @@ export default function Header() {
     <>
       {pathname === "/" ? (
         <>
+          {/* 追従 */}
+          <HeaderWrapper isClear={isClear}>
+            <Logo />
+            <Navi pathname={pathname} />
+          </HeaderWrapper>
+          {/* 一番上 */}
           <HeaderWrapper
             bgColor="rgba(0, 0, 0, 0)"
             darkBgColor="rgba(0, 0, 0, 0)"
@@ -45,10 +51,6 @@ export default function Header() {
           >
             <Logo isFiltered={true} />
             <Navi color="white" pathname={pathname} />
-          </HeaderWrapper>
-          <HeaderWrapper isClear={isClear}>
-            <Logo />
-            <Navi pathname={pathname} />
           </HeaderWrapper>
         </>
       ) : (

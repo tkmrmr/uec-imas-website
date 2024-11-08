@@ -27,7 +27,7 @@ export default function HeaderWrapper({
       position={isMovingHeader ? "fixed" : "absolute"}
       top={0}
       zIndex="docked"
-      p={{ base: "0 10px", md: "0 40px" }}
+      p={{ base: "0 20px", md: "0 40px", lg: "0 60px" }}
       transition="opacity 0.2s ease-out"
       boxShadow={boxShadow}
       opacity={isClear ? 0 : 1}

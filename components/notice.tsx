@@ -1,4 +1,4 @@
-import { Box, Text, Divider } from "@chakra-ui/react";
+import { Box, Text, Divider, Image, Center } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { client } from "../lib/client";
 
@@ -10,6 +10,11 @@ type Notice = {
   revisedAt: Date;
   title: string;
   content: string;
+  image?: {
+    url: string;
+    height: number;
+    width: number;
+  };
 };
 
 export default async function Notice() {
@@ -51,6 +56,9 @@ export default async function Notice() {
           >
             {notice.content}
           </Text>
+          <Center mt={5}>
+            <Image src={notice.image?.url} alt="" maxH="624px" />
+          </Center>
         </Box>
       ) : (
         <Text

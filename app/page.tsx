@@ -39,17 +39,17 @@ export default function Home() {
         <Box position="relative" zIndex={2} textAlign={"center"}>
           <Heading
             fontSize={{ base: "7xl", sm: "8xl", lg: "9xl" }}
-            bgGradient="linear(to-tr, white, teal.400)"
+            bgGradient="linear(to-tr, white, orange.400)"
             bgClip="text"
-            _dark={{ bgGradient: "linear(to-tr, teal.50, teal.500)" }}
+            _dark={{ bgGradient: "linear(to-tr, orange.50, orange.500)" }}
           >
             D@NPEN
           </Heading>
           <Heading
             fontSize={{ base: "1xl", lg: "2xl" }}
-            bgGradient="linear(to-tr, white, teal.400)"
+            bgGradient="linear(to-tr, white, orange.400)"
             bgClip="text"
-            _dark={{ bgGradient: "linear(to-tr, teal.50, teal.500)" }}
+            _dark={{ bgGradient: "linear(to-tr, orange.50, orange.500)" }}
           >
             電気通信大学アイドルマスター研究会
           </Heading>
@@ -68,9 +68,9 @@ export default function Home() {
                 pb={12}
                 textDecor="underline"
                 textUnderlineOffset="10px"
-                textDecorationColor="teal.400"
+                textDecorationColor="orange.400"
                 textDecorationThickness="5px"
-                _dark={{ textDecorationColor: "teal.300" }}
+                _dark={{ textDecorationColor: "orange.300" }}
               >
                 お知らせ
               </Heading>
@@ -85,9 +85,9 @@ export default function Home() {
                   pb={12}
                   textDecor="underline"
                   textUnderlineOffset="10px"
-                  textDecorationColor="teal.400"
+                  textDecorationColor="orange.400"
                   textDecorationThickness="5px"
-                  _dark={{ textDecorationColor: "teal.300" }}
+                  _dark={{ textDecorationColor: "orange.300" }}
                 >
                   新着記事
                 </Heading>
@@ -101,9 +101,9 @@ export default function Home() {
                   pb={12}
                   textDecor="underline"
                   textUnderlineOffset="10px"
-                  textDecorationColor="teal.400"
+                  textDecorationColor="orange.400"
                   textDecorationThickness="5px"
-                  _dark={{ textDecorationColor: "teal.300" }}
+                  _dark={{ textDecorationColor: "orange.300" }}
                 >
                   Twitter
                 </Heading>

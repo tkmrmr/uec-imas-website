@@ -40,7 +40,10 @@ export default function About() {
               </Text>
               <Text textAlign="right">
                 （
-                <Link href="https://uec-imas.tumblr.com/about" color="teal.400">
+                <Link
+                  href="https://uec-imas.tumblr.com/about"
+                  color="orange.400"
+                >
                   旧サイト
                 </Link>
                 より改変）

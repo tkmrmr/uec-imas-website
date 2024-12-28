@@ -13,7 +13,7 @@ export default function UnderConstruction() {
             fontWeight="600"
             fontSize={{ md: "13px", lg: "15px", xl: "17px" }}
           >
-            <Button bgColor="teal.400" _hover={{ bgColor: "teal.500" }}>
+            <Button bgColor="orange.400" _hover={{ bgColor: "orange.500" }}>
               トップページに戻る
             </Button>
           </Link>

@@ -75,19 +75,20 @@ export default function Navi({
                     href={link.href}
                     w="100%"
                     onClick={onClose}
-                    color={link.href === pathname ? "teal.400" : "gray.700"}
-                    bgColor={link.href === pathname ? "teal.50" : "white"}
+                    color={link.href === pathname ? "orange.400" : "gray.700"}
+                    bgColor={link.href === pathname ? "orange.50" : "white"}
                     m="10px 0"
                     justifyContent="flex-start"
                     fontSize="lg"
                     fontWeight="normal"
-                    _hover={{ color: "teal.400", bgColor: "teal.50" }}
+                    _hover={{ color: "orange.400", bgColor: "orange.50" }}
                     _active={{
                       WebkitTapHighlightColor: "transparent",
                     }}
                     _dark={{
-                      color: link.href === pathname ? "teal.300" : "gray.100",
-                      bgColor: link.href === pathname ? "teal.800" : "gray.800",
+                      color: link.href === pathname ? "orange.300" : "gray.100",
+                      bgColor:
+                        link.href === pathname ? "orange.800" : "gray.800",
                     }}
                   >
                     {link.text}
@@ -126,17 +127,17 @@ export default function Navi({
                 lineHeight="100px"
                 color={color}
                 textDecoration="none"
-                bgImage="linear-gradient(90deg, teal.400, teal.400)"
+                bgImage="linear-gradient(90deg, orange.400, orange.400)"
                 bgRepeat="no-repeat"
                 bgPosition="left bottom"
                 bgSize="0 2px"
                 transition="background-size 0.3s, color 0.3s ease"
-                _hover={{ color: "teal.400", bgSize: "100% 2px" }}
+                _hover={{ color: "orange.400", bgSize: "100% 2px" }}
                 _dark={{
                   color: darkColor,
-                  bgImage: "linear-gradient(90deg, teal.300, teal.300)",
+                  bgImage: "linear-gradient(90deg, orange.300, orange.300)",
                   _hover: {
-                    color: "teal.300",
+                    color: "orange.300",
                   },
                 }}
               >

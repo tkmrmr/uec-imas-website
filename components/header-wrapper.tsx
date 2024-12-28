@@ -2,7 +2,7 @@ import { Box, Flex } from "@chakra-ui/react";
 
 export default function HeaderWrapper({
   children,
-  bgColor = "whiteAlpha.800",
+  bgColor = "whiorangepha.800",
   darkBgColor = "blackAlpha.400",
   boxShadow = "md",
   isMovingHeader = true,

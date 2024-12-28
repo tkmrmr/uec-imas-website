@@ -17,7 +17,7 @@ export default function Contact() {
             D@NPENでは、通年で新規入会者を募集しています。
             <br />
             お問い合わせ・入会希望は以下のフォーム、もしくは
-            <Link href="https://twitter.com/uec_imas" color="teal.400">
+            <Link href="https://twitter.com/uec_imas" color="orange.400">
               公式Twitterアカウント
             </Link>
             のDMまでお願いいたします。

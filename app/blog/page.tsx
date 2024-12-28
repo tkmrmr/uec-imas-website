@@ -86,7 +86,7 @@ export default function Blog() {
                 key={num}
                 m="10px 5px 5px"
                 p="5px 10px"
-                bg={currentPage === num + 1 ? "teal.400" : "gray.300"}
+                bg={currentPage === num + 1 ? "orange.400" : "gray.300"}
                 color="white"
                 borderRadius="full"
                 onClick={() => paginate(num + 1)}

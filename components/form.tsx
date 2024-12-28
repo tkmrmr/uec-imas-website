@@ -178,7 +178,7 @@ export default function Form() {
                   disabled={isSubmitting}
                   isLoading={isSubmitting}
                   loadingText="送信中"
-                  colorScheme="teal"
+                  colorScheme="orange"
                   w={{ base: "150px", sm: "300px" }}
                   minH="40px"
                 >

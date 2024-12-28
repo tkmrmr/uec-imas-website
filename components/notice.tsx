@@ -45,9 +45,9 @@ export default async function Notice() {
           <Text fontSize={{ base: "lg", sm: "xl" }}>{notice.title}</Text>
           <Divider
             my={3}
-            borderColor="teal.400"
+            borderColor="orange.400"
             borderWidth="2px"
-            _dark={{ borderColor: "teal.300" }}
+            _dark={{ borderColor: "orange.300" }}
           />
           <Text
             fontSize={{ base: "md", sm: "lg" }}

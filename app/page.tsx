@@ -3,8 +3,31 @@ import { Box, Heading, Container, Stack, SimpleGrid } from "@chakra-ui/react";
 import TwitterTimeline from "../components/twitter-timeline";
 import Notice from "../components/notice";
 import Note from "../components/note";
+import { client } from "../lib/client";
 
-export default function Home() {
+type TopImage = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+  revisedAt: Date;
+  image: {
+    url: string;
+    height: number;
+    width: number;
+  };
+};
+
+export default async function Home() {
+  const data = await client.get({
+    customRequestInit: {
+      next: { tags: ["top-image"] },
+    },
+    endpoint: "top-image",
+    queries: { limit: 1, orders: "-publishedAt" },
+  });
+  const topImage: TopImage = data.contents[0];
+
   return (
     <Box>
       {/* ヒーローセクション */}
@@ -19,7 +42,7 @@ export default function Home() {
         zIndex={1}
       >
         <Image
-          src="/top.webp"
+          src={topImage.image.url}
           alt=""
           layout="fill"
           objectFit="cover"

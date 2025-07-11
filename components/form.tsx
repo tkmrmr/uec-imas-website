@@ -12,12 +12,12 @@ import {
   Center,
   Stack,
   Select,
-  useBreakpointValue,
+  // useBreakpointValue,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Turnstile, WidgetSize } from "@marsidev/react-turnstile";
+// import { Turnstile, WidgetSize } from "@marsidev/react-turnstile";
 
 const contactSchema = z.object({
   name: z
@@ -38,12 +38,12 @@ const contactSchema = z.object({
 type Contact = z.infer<typeof contactSchema>;
 
 export default function Form() {
-  const [isVerified, setIsVerified] = useState(false);
-  const turnstileSize: WidgetSize =
-    useBreakpointValue<WidgetSize>({
-      base: "compact",
-      sm: "normal",
-    }) || "normal";
+  const [isVerified] = useState(false);
+  // const turnstileSize: WidgetSize =
+  //   useBreakpointValue<WidgetSize>({
+  //     base: "compact",
+  //     sm: "normal",
+  //   }) || "normal";
 
   const {
     register,
@@ -54,34 +54,37 @@ export default function Form() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSuccess = async (token: string) => {
-    try {
-      const res = await fetch("/api/verify", {
-        method: "POST",
-        body: JSON.stringify({ token }),
-        headers: {
-          "content-type": "application/json",
-        },
-      });
-      if (!res.ok) {
-        throw new Error("Verification failed");
-      }
-      const verifyData = await res.json();
-      setIsVerified(verifyData.success);
-    } catch (error) {
-      console.error("Error verifying token:", error);
-      setIsVerified(false);
-    }
-  };
+  // const onSuccess = async (token: string) => {
+  //   try {
+  //     const res = await fetch("/api/verify", {
+  //       method: "POST",
+  //       body: JSON.stringify({ token }),
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //     });
+  //     if (!res.ok) {
+  //       throw new Error("Verification failed");
+  //     }
+  //     const verifyData = await res.json();
+  //     setIsVerified(verifyData.success);
+  //   } catch (error) {
+  //     console.error("Error verifying token:", error);
+  //     setIsVerified(false);
+  //   }
+  // };
 
   const onSubmit = async (data: Contact) => {
     console.log(data);
     console.log(isVerified);
-    if (isValid && isVerified) {
+    if (isValid) {
       try {
         await fetch("/api/send-email", {
           method: "POST",
           body: JSON.stringify(data),
+          headers: {
+            "content-type": "application/json",
+          },
         });
       } catch (error) {
         throw error;
@@ -168,11 +171,11 @@ export default function Form() {
                 mt={{ base: 1, sm: "3" }}
                 maxH={{ base: "200px", sm: "125px" }}
               >
-                <Turnstile
+                {/* <Turnstile
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
                   options={{ size: turnstileSize }}
                   onSuccess={onSuccess}
-                />
+                /> */}
                 <Button
                   type="submit"
                   disabled={isSubmitting}

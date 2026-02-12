@@ -2,7 +2,7 @@ import type { TurnstileServerValidationResponse } from "@marsidev/react-turnstil
 
 const verifyEndpoint =
   "https://challenges.cloudflare.com/turnstile/v0/siteverify";
-const secret = process.env.TURNSTILE_SECRET_KET ?? "";
+const secret = process.env.TURNSTILE_SECRET_KEY ?? "";
 
 export async function POST(request: Request) {
   const { token } = (await request.json()) as { token: string };

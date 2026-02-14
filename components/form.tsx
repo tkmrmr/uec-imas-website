@@ -27,7 +27,7 @@ const contactSchema = z.object({
   email: z.string().email("メールアドレスの形式で入力してください。"),
   category: z.enum(
     ["入会希望", "サークルについて", "このサイトについて", "その他"],
-    { errorMap: () => ({ message: "お問い合わせ種別を選択してください。" }) }
+    { errorMap: () => ({ message: "お問い合わせ種別を選択してください。" }) },
   ),
   content: z
     .string()
@@ -49,7 +49,7 @@ export default function Form() {
     register,
     handleSubmit,
     formState: { errors, isValid, isSubmitSuccessful, isSubmitting },
-  } = useForm<Contact>({
+  } = useForm({
     mode: "onSubmit",
     resolver: zodResolver(contactSchema),
   });
